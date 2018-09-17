@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{A9DF561B-4E0C-4C6C-A46B-F7471B83AA63}" Name="EmailProfiling.xml">
+      <DtsConnectionManagerID>EmailProfiling.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{551A5EA7-879B-4E20-866E-D9C28163B393}" Name="localhost.AdventureWorksDW2012">
+      <DtsConnectionManagerID>localhost.AdventureWorksDW2012</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{551A5EA7-879B-4E20-866E-D9C28163B393}</DataSourceID>
+        <Table Schema="dbo" Table="vTargetMail" />
+        <Column IsWildCard="false" ColumnName="EmailAddress" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{551A5EA7-879B-4E20-866E-D9C28163B393}</DataSourceID>
+        <Table DataSource="localhost" Database="AdventureWorksDW2012" Schema="dbo" Table="vTargetMail" RowCount="18484" />
+        <Column Name="EmailAddress" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+\d\d@ADVENTURE-WORKS\.COM</RegexText>
+            <Frequency>73</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+\d@ADVENTURE-WORKS\.COM</RegexText>
+            <Frequency>27</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

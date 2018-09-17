@@ -1,0 +1,1643 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/3/2012 11:53:18 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DENALIPP"
+  DTS:CreatorName="DENALIPP\Administrator"
+  DTS:DTSID="{4920BC8D-5BBB-49D2-B914-7C483AA9F1E8}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.1750.32"
+  DTS:LocaleID="1060"
+  DTS:ObjectName="IncLoadStgSalesHeader"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{16E7C88B-EFD6-43A0-B1F0-3B87D59527DC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[TK463DWAdoNet]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{F4423034-FE87-4EC3-B423-6E65539A5800}"
+      DTS:ObjectName="TK463DWAdoNet">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=TK463DW;Integrated Security=True;Application Name=SSIS-IncLoadStgSalesHeader-{F4423034-FE87-4EC3-B423-6E65539A5800}localhost.TK463DW1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5FF56061-6CBA-4CAA-926C-46A351F3CDB3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CDC_State">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CDC Control Task"
+      DTS:CreationName="Attunity.SqlServer.CDCControlTask.CdcControlTask, Attunity.SqlServer.CDCControlTask, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{58DF0BB8-D4C3-4F05-BAC2-B5ADC5483D81}"
+      DTS:ExecutableType="Attunity.SqlServer.CDCControlTask.CdcControlTask, Attunity.SqlServer.CDCControlTask, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CDC Control Task"
+      DTS:TaskContact="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="TK463DWAdoNet"
+          TaskOperation="MarkProcessedRange"
+          OperationParameter=""
+          StateConnection="TK463DWAdoNet"
+          StateVariable="User::CDC_State"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CDC Start"
+      DTS:CreationName="Attunity.SqlServer.CDCControlTask.CdcControlTask, Attunity.SqlServer.CDCControlTask, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c"
+      DTS:Description="CDC Control Task"
+      DTS:DTSID="{6B115248-9A84-4196-B3D1-5431EB77B6CC}"
+      DTS:ExecutableType="Attunity.SqlServer.CDCControlTask.CdcControlTask, Attunity.SqlServer.CDCControlTask, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CDC Start"
+      DTS:TaskContact="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <CDCControlTask
+          Connection="TK463DWAdoNet"
+          TaskOperation="GetProcessingRange"
+          OperationParameter=""
+          StateConnection="TK463DWAdoNet"
+          StateVariable="User::CDC_State"
+          AutomaticStatePersistence="True"
+          StateName="CDC_State"
+          StateTable="[dbo].[cdc_states]"
+          CommandTimeout="30"
+          ChangeDetectionRetryInterval="10"
+          ChangeDetectionTimeout="60" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete data"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8A8C93D8-FAF0-4B2E-BCA1-ED2044D34BAE}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server &quot;2012&quot; RC0; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1B6CE4A4-AB0D-45CA-A1C5-51DC7272C652}"
+          SQLTask:SqlStatementSource="DELETE stg.SalesOrderHeader&#xA;WHERE SalesOrderID IN &#xA;  (SELECT SalesOrderID FROM stg.tmpDeleteSalesOrderHeader);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inc Load SalesHeader"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D66A00B2-4432-4918-9190-389A525872B1}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inc Load SalesHeader"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Inc Load SalesHeader\CDC Source"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+              description="Reads change data from a SQL Server change table making it available for processing by downstream data-flow components. Only changes within the current processing range determined by the CDC Control task are read"
+              name="CDC Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="An SSIS string package variable to store the CDC state of the current CDC state."
+                  expressionType="Notify"
+                  name="StateVariable"
+                  typeConverter="Attunity.SqlServer.CDCSrc.PackageVariablesTypeConverter, Attunity.SqlServer.CDCSrc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c">User::CDC_State</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the content of the metadata columns and the rows returned. Modes starting with ‘All’ return all changes and modes starting with ‘Net’ return net changes."
+                  expressionType="Notify"
+                  name="CDCProcessingMode"
+                  typeConverter="Attunity.SqlServer.CDCSrc.CdcProcessingMode, Attunity.SqlServer.CDCSrc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c">2</property>
+                <property
+                  dataType="System.String"
+                  description="The name of the CDC capture instance. By default the capture instance name is in the form of &quot;&lt;owner&gt;_&lt;table&gt;&quot;. The actual table that stores the changes is the CDC table named &quot;cdc&quot;.&quot;&lt;capture-instance&gt;_CT&quot;"
+                  expressionType="Notify"
+                  name="CaptureInstance">stg_CDCSalesOrderHeader</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time out."
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="If true, a special output column called ‘__$reprocessing ’ is added. This output column is true for each data row during the initial processing range, or when the previous CDC run&#xA;was stopped without finishing. The default value is false (the __$reprocessing output column is not generated). This special output column allows the SSIS developer to handle consistency errors differently when working on the Initial Processing Range or the previous CDC run was stopped."
+                  expressionType="Notify"
+                  name="ReprocessingIndication">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Attunity.SqlServer.CDCSrc.CdcSourceComponent, Attunity.SqlServer.CDCSrc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inc Load SalesHeader\CDC Source.Connections[Connection]"
+                  connectionManagerID="Package.ConnectionManagers[TK463DWAdoNet]"
+                  connectionManagerRefId="Package.ConnectionManagers[TK463DWAdoNet]"
+                  name="Connection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$start_lsn]"
+                      dataType="bytes"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[__$start_lsn]"
+                      length="10"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$start_lsn]"
+                      name="__$start_lsn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$operation]"
+                      dataType="i4"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[__$operation]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$operation]"
+                      name="__$operation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$update_mask]"
+                      dataType="bytes"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[__$update_mask]"
+                      length="128"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$update_mask]"
+                      name="__$update_mask"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderID]"
+                      dataType="i4"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderID]"
+                      name="SalesOrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[SalesOrderNumber]"
+                      length="50"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[CustomerID]"
+                      dataType="i4"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[CustomerID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesPersonID]"
+                      dataType="i4"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesPersonID]"
+                      name="SalesPersonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TerritoryID]"
+                      dataType="i4"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TerritoryID]"
+                      name="TerritoryID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SubTotal]"
+                      dataType="numeric"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[SubTotal]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SubTotal]"
+                      name="SubTotal"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TaxAmt]"
+                      dataType="numeric"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[TaxAmt]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[Freight]"
+                      dataType="numeric"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[Freight]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[Freight]"
+                      name="Freight"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[__$start_lsn]"
+                      dataType="bytes"
+                      length="10"
+                      name="__$start_lsn" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[__$operation]"
+                      dataType="i4"
+                      name="__$operation" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[__$update_mask]"
+                      dataType="bytes"
+                      length="128"
+                      name="__$update_mask" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[SubTotal]"
+                      dataType="numeric"
+                      name="SubTotal"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[TaxAmt]"
+                      dataType="numeric"
+                      name="TaxAmt"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].ExternalColumns[Freight]"
+                      dataType="numeric"
+                      name="Freight"
+                      precision="16"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput]"
+                  isErrorOut="true"
+                  name="ErrorOutput">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[__$start_lsn]"
+                      dataType="bytes"
+                      length="10"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[__$start_lsn]"
+                      name="__$start_lsn" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[__$operation]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[__$operation]"
+                      name="__$operation" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[__$update_mask]"
+                      dataType="bytes"
+                      length="128"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[__$update_mask]"
+                      name="__$update_mask" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[SalesOrderID]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[SalesOrderID]"
+                      name="SalesOrderID" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[SalesOrderNumber]"
+                      name="SalesOrderNumber" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[SalesPersonID]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[SalesPersonID]"
+                      name="SalesPersonID" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[TerritoryID]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[TerritoryID]"
+                      name="TerritoryID" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[SubTotal]"
+                      dataType="numeric"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[SubTotal]"
+                      name="SubTotal"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[TaxAmt]"
+                      dataType="numeric"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[Freight]"
+                      dataType="numeric"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[ErrorOutput].Columns[Freight]"
+                      name="Freight"
+                      precision="16"
+                      scale="6" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Inc Load SalesHeader\CDC Splitter"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Attunity Ltd.; All Rights Reserved; http://www.attunity.com;"
+              description="Directs a stream of net change records into different outputs based on the type of the change (Insert, Delete and Update). This allows specific handling for different types of change records."
+              name="CDC Splitter"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Attunity.SqlServer.CDCSplit.CdcSplitterComponent, Attunity.SqlServer.CDCSplit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input]"
+                  errorOrTruncationOperation="Operation of the changed row is not a valid one"
+                  errorRowDisposition="FailComponent"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[__$start_lsn]"
+                      cachedDataType="bytes"
+                      cachedLength="10"
+                      cachedName="__$start_lsn"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$start_lsn]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[__$operation]"
+                      cachedDataType="i4"
+                      cachedName="__$operation"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$operation]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[__$update_mask]"
+                      cachedDataType="bytes"
+                      cachedLength="128"
+                      cachedName="__$update_mask"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[__$update_mask]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[SalesOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SalesOrderNumber"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderNumber]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[TerritoryID]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryID"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[SubTotal]"
+                      cachedDataType="numeric"
+                      cachedName="SubTotal"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[TaxAmt]"
+                      cachedDataType="numeric"
+                      cachedName="TaxAmt"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TaxAmt]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input].Columns[Freight]"
+                      cachedDataType="numeric"
+                      cachedName="Freight"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[Freight]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[InsertOutput]"
+                  exclusionGroup="1"
+                  name="InsertOutput"
+                  synchronousInputId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input]">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Output type - Insert."
+                      name="OutputType"
+                      typeConverter="Attunity.SqlServer.CDCSplit.OutputType, Attunity.SqlServer.CDCSplit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[DeleteOutput]"
+                  exclusionGroup="1"
+                  name="DeleteOutput"
+                  synchronousInputId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input]">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Output type - Delete."
+                      name="OutputType"
+                      typeConverter="Attunity.SqlServer.CDCSplit.OutputType, Attunity.SqlServer.CDCSplit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[UpdateOutput]"
+                  exclusionGroup="1"
+                  name="UpdateOutput"
+                  synchronousInputId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input]">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Output type - Update."
+                      name="OutputType"
+                      typeConverter="Attunity.SqlServer.CDCSplit.OutputType, Attunity.SqlServer.CDCSplit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[ErrorOutput]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ErrorOutput"
+                  synchronousInputId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input]">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Output type - Error."
+                      name="OutputType"
+                      typeConverter="Attunity.SqlServer.CDCSplit.OutputType, Attunity.SqlServer.CDCSplit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aa342389a732e31c">3</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[ErrorOutput].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Inc Load SalesHeader\Deleted rows"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Deleted rows"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[tmpDeleteSalesOrderHeader]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inc Load SalesHeader\Deleted rows.Connections[OleDbConnection]"
+                  connectionManagerID="{1B6CE4A4-AB0D-45CA-A1C5-51DC7272C652}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[TK463DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[SalesOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderNumber]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[TerritoryID]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[SubTotal]"
+                      cachedDataType="numeric"
+                      cachedName="SubTotal"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[TaxAmt]"
+                      cachedDataType="numeric"
+                      cachedName="TaxAmt"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TaxAmt]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].Columns[Freight]"
+                      cachedDataType="numeric"
+                      cachedName="Freight"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[Freight]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      dataType="numeric"
+                      name="SubTotal"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      dataType="numeric"
+                      name="TaxAmt"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      dataType="numeric"
+                      name="Freight"
+                      precision="16"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Inc Load SalesHeader\Deleted rows.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\Deleted rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\Deleted rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\Deleted rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Inc Load SalesHeader\Insert new rows"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert new rows"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[SalesOrderHeader]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inc Load SalesHeader\Insert new rows.Connections[OleDbConnection]"
+                  connectionManagerID="{1B6CE4A4-AB0D-45CA-A1C5-51DC7272C652}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[TK463DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[SalesOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderNumber]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[TerritoryID]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[SubTotal]"
+                      cachedDataType="numeric"
+                      cachedName="SubTotal"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[TaxAmt]"
+                      cachedDataType="numeric"
+                      cachedName="TaxAmt"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TaxAmt]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].Columns[Freight]"
+                      cachedDataType="numeric"
+                      cachedName="Freight"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[Freight]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      dataType="numeric"
+                      name="SubTotal"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      dataType="numeric"
+                      name="TaxAmt"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      dataType="numeric"
+                      name="Freight"
+                      precision="16"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Inc Load SalesHeader\Insert new rows.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\Insert new rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\Insert new rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\Insert new rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Inc Load SalesHeader\Updated rows"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Updated rows"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg].[tmpUpdateSalesOrderHeader]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inc Load SalesHeader\Updated rows.Connections[OleDbConnection]"
+                  connectionManagerID="{1B6CE4A4-AB0D-45CA-A1C5-51DC7272C652}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[TK463DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[SalesOrderID]"
+                      cachedDataType="i4"
+                      cachedName="SalesOrderID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[SalesOrderNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SalesOrderNumber"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesOrderNumber]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[SalesPersonID]"
+                      cachedDataType="i4"
+                      cachedName="SalesPersonID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SalesPersonID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[TerritoryID]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryID"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TerritoryID]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[SubTotal]"
+                      cachedDataType="numeric"
+                      cachedName="SubTotal"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[TaxAmt]"
+                      cachedDataType="numeric"
+                      cachedName="TaxAmt"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[TaxAmt]" />
+                    <inputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].Columns[Freight]"
+                      cachedDataType="numeric"
+                      cachedName="Freight"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      lineageId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output].Columns[Freight]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderID]"
+                      dataType="i4"
+                      name="SalesOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrderNumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesOrderNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      dataType="i4"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonID]"
+                      dataType="i4"
+                      name="SalesPersonID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                      dataType="i4"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[SubTotal]"
+                      dataType="numeric"
+                      name="SubTotal"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[TaxAmt]"
+                      dataType="numeric"
+                      name="TaxAmt"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      dataType="numeric"
+                      name="Freight"
+                      precision="16"
+                      scale="6" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Inc Load SalesHeader\Updated rows.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\Updated rows.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inc Load SalesHeader\Updated rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inc Load SalesHeader\Updated rows.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Inc Load SalesHeader.Paths[DeleteOutput]"
+              endId="Package\Inc Load SalesHeader\Deleted rows.Inputs[OLE DB Destination Input]"
+              name="DeleteOutput"
+              startId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[DeleteOutput]" />
+            <path
+              refId="Package\Inc Load SalesHeader.Paths[InsertOutput]"
+              endId="Package\Inc Load SalesHeader\Insert new rows.Inputs[OLE DB Destination Input]"
+              name="InsertOutput"
+              startId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[InsertOutput]" />
+            <path
+              refId="Package\Inc Load SalesHeader.Paths[Output]"
+              endId="Package\Inc Load SalesHeader\CDC Splitter.Inputs[Input]"
+              name="Output"
+              startId="Package\Inc Load SalesHeader\CDC Source.Outputs[Output]" />
+            <path
+              refId="Package\Inc Load SalesHeader.Paths[UpdateOutput]"
+              endId="Package\Inc Load SalesHeader\Updated rows.Inputs[OLE DB Destination Input]"
+              name="UpdateOutput"
+              startId="Package\Inc Load SalesHeader\CDC Splitter.Outputs[UpdateOutput]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update data"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C137B3BE-9A90-4F5F-B70C-FFD800DE8051}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server &quot;2012&quot; RC0; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1B6CE4A4-AB0D-45CA-A1C5-51DC7272C652}"
+          SQLTask:SqlStatementSource="UPDATE S&#xA;SET&#xA;  OrderDate = U.OrderDate,&#xA;  SalesOrderNumber = U.SalesOrderNumber,&#xA;  CustomerID = U.CustomerID,&#xA;  SalesPersonID = U.SalesPersonID,&#xA;  TerritoryID = U.TerritoryID,&#xA;  SubTotal = U.SubTotal,&#xA;  TaxAmt = U.TaxAmt,&#xA;  Freight = U.Freight&#xA;FROM stg.SalesOrderHeader AS S&#xA;INNER JOIN stg.tmpUpdateSalesOrderHeader AS U ON S.SalesOrderID = U.SalesOrderID;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B49FBE78-190A-4E74-ABF9-6549CDF5EA92}"
+      DTS:From="Package\CDC Start"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Inc Load SalesHeader" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1A2BAB5A-F632-47DF-9F44-C17D43054A64}"
+      DTS:From="Package\Inc Load SalesHeader"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Update data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB2E8106-013F-42A6-8C5F-D51A8EC7BFBD}"
+      DTS:From="Package\Update data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Delete data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{C4D5FA33-CF2A-4D7E-94D4-0AD708A2F146}"
+      DTS:From="Package\Delete data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\CDC Control Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\CDC Start"
+          TopLeft="391,90" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Inc Load SalesHeader"
+          TopLeft="360,183" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="452.5,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Update data"
+          TopLeft="385,287" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="452.5,225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="134,42"
+          Id="Package\Delete data"
+          TopLeft="392,377" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="456.5,329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162,42"
+          Id="Package\CDC Control Task"
+          TopLeft="384,452" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="462,419">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Inc Load SalesHeader">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Inc Load SalesHeader\CDC Source"
+          TopLeft="349,112" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Inc Load SalesHeader\CDC Splitter"
+          TopLeft="384,226" />
+        <EdgeLayout
+          Id="Package\Inc Load SalesHeader.Paths[Output]"
+          TopLeft="416.5,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,72"
+              Start="0,0"
+              End="36,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32"
+                    Point2="0,36"
+                    Point3="4,36" />
+                  <mssgle:LineSegment
+                    End="32,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,36"
+                    Point2="36,36"
+                    Point3="36,40" />
+                  <mssgle:LineSegment
+                    End="36,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Inc Load SalesHeader\Insert new rows"
+          TopLeft="235,344" />
+        <EdgeLayout
+          Id="Package\Inc Load SalesHeader.Paths[InsertOutput]"
+          TopLeft="452.5,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-139.5,76"
+              Start="0,0"
+              End="-139.5,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34"
+                    Point2="0,38"
+                    Point3="-4,38" />
+                  <mssgle:LineSegment
+                    End="-135.5,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-135.5,38"
+                    Point2="-139.5,38"
+                    Point3="-139.5,42" />
+                  <mssgle:LineSegment
+                    End="-139.5,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-97.72798828125,43,55.9559765625,9.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Inc Load SalesHeader\Updated rows"
+          TopLeft="463,341" />
+        <EdgeLayout
+          Id="Package\Inc Load SalesHeader.Paths[UpdateOutput]"
+          TopLeft="452.5,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="83,73"
+              Start="0,0"
+              End="83,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.5"
+                    Point2="0,36.5"
+                    Point3="4,36.5" />
+                  <mssgle:LineSegment
+                    End="79,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79,36.5"
+                    Point2="83,36.5"
+                    Point3="83,40.5" />
+                  <mssgle:LineSegment
+                    End="83,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="10.86966796875,41.5,61.2606640625,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Inc Load SalesHeader\Deleted rows"
+          TopLeft="673,354" />
+        <EdgeLayout
+          Id="Package\Inc Load SalesHeader.Paths[DeleteOutput]"
+          TopLeft="484.75,268">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="259.25,86"
+              Start="0,0"
+              End="259.25,78.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.7613365155131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.7613365155131"
+                    Point2="0,29.7613365155131"
+                    Point3="4,29.7613365155131" />
+                  <mssgle:LineSegment
+                    End="255.25,29.7613365155131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="255.25,29.7613365155131"
+                    Point2="259.25,29.7613365155131"
+                    Point3="259.25,33.7613365155131" />
+                  <mssgle:LineSegment
+                    End="259.25,78.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="100.67861328125,34.7613365155131,57.8927734375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Inc Load SalesHeader\CDC Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Inc Load SalesHeader\Insert new rows">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Inc Load SalesHeader\Updated rows">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Inc Load SalesHeader\Deleted rows">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

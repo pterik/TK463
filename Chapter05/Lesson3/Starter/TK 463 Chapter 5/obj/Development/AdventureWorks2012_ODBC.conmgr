@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="AdventureWorks2012_ODBC"
+  DTS:DTSID="{78B76B83-F1BE-4132-AEA1-BE686DB90890}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Dsn=AdventureWorks2012;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

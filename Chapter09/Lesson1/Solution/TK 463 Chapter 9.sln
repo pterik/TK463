@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TK 463 Chapter 9", "TK 463 Chapter 9\TK 463 Chapter 9.dtproj", "{8ED2E356-A76C-4C6A-84FA-A3C5A9AF07B1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+		Production|Default = Production|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8ED2E356-A76C-4C6A-84FA-A3C5A9AF07B1}.Development|Default.ActiveCfg = Development
+		{8ED2E356-A76C-4C6A-84FA-A3C5A9AF07B1}.Development|Default.Build.0 = Development
+		{8ED2E356-A76C-4C6A-84FA-A3C5A9AF07B1}.Production|Default.ActiveCfg = Production
+		{8ED2E356-A76C-4C6A-84FA-A3C5A9AF07B1}.Production|Default.Build.0 = Production
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

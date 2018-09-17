@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "TK 463 Chapter 18 SSAS", "TK 463 Chapter 18 SSAS\TK 463 Chapter 18 SSAS.dwproj", "{0B669DE9-F024-41B4-A0D6-C615BABD40E7}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TK 463 Chapter 18 SSIS", "TK 463 Chapter 18 SSIS\TK 463 Chapter 18 SSIS.dtproj", "{069B7B13-0A82-413D-876C-ABC8AA18C92F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B669DE9-F024-41B4-A0D6-C615BABD40E7}.Development|Default.ActiveCfg = Development
+		{0B669DE9-F024-41B4-A0D6-C615BABD40E7}.Development|Default.Build.0 = Development
+		{0B669DE9-F024-41B4-A0D6-C615BABD40E7}.Development|Default.Deploy.0 = Development
+		{069B7B13-0A82-413D-876C-ABC8AA18C92F}.Development|Default.ActiveCfg = Development
+		{069B7B13-0A82-413D-876C-ABC8AA18C92F}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

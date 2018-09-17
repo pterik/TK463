@@ -1,0 +1,1300 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2012 10:40:26 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SOLIDQDS"
+  DTS:CreatorName="SOLIDQDS\Administrator"
+  DTS:DTSID="{CC223ED4-550C-43C9-AC65-CBA8D0FC267A}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="TextMining"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{ECBB357C-7345-4F5B-A575-D461371034D9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1CCE5A27-E59B-4369-9203-3EE25093471D}"
+      DTS:ObjectName="localhost.AdventureWorks2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorks2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TermExtraction"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{53603E97-4A8B-4F7F-B679-0DB11C29D9EB}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TermExtraction"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TermExtraction\ProductReviews"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ProductReviews"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ProductReviewID,
+ ProductID,
+ ReviewerName,
+ Rating,
+ Comments
+FROM Production.ProductReview;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TermExtraction\ProductReviews.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductReviewID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ProductReviewID]"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductReviewID]"
+                      name="ProductReviewID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[ReviewerName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ReviewerName]"
+                      length="50"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[ReviewerName]"
+                      name="ReviewerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[Rating]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[Rating]"
+                      name="Rating"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[Comments]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[Comments]"
+                      length="3850"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[Comments]"
+                      name="Comments"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ProductReviewID]"
+                      dataType="i4"
+                      name="ProductReviewID" />
+                    <externalMetadataColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ReviewerName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ReviewerName" />
+                    <externalMetadataColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                      dataType="i4"
+                      name="Rating" />
+                    <externalMetadataColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[Comments]"
+                      dataType="wstr"
+                      length="3850"
+                      name="Comments" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ProductReviewID]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ProductReviewID]"
+                      name="ProductReviewID" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ReviewerName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ReviewerName]"
+                      name="ReviewerName" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                      name="Rating" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[Comments]"
+                      dataType="wstr"
+                      length="3850"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[Comments]"
+                      name="Comments" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TermExtraction\Term Extraction"
+              componentClassID="{056F53D1-8081-4D07-8134-1D4DAC244BB2}"
+              description="Extracts frequently used English-only terms from an input data flow. Terms and their corresponding score are written to output data columns. For example, search a group of documents to discover commonly-used terms. Note: an English dictionary is included with Integration Services."
+              name="Term Extraction"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to use exclusion terms."
+                  name="NeedReferenceData">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the reference table containing the exclusion terms."
+                  name="OutTermTable"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column containing the exclusion terms. The column must be in the table specified in the property OutTermTable."
+                  name="OutTermColumn"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of terms to extract. 0 specifies noun, 1 specifies noun phrase, and 2 specifies noun and noun phrase."
+                  name="WordOrPhrase"
+                  typeConverter="WordOrPhrase">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what kind of score to be associated with a term. 0 means using the frequency of a term as the score; 1 means using the TFIDF of a term as the score."
+                  name="ScoreType"
+                  typeConverter="ScoreType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the frequency threshold above which a term is extracted."
+                  name="FrequencyThreshold">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of words in a term."
+                  name="MaxLengthOfTerm">12</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the Term Extraction process is case sensitive."
+                  name="IsCaseSensitive">false</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\TermExtraction\Term Extraction.Inputs[Term Extraction Input]"
+                  description="Input to Term Extraction Transformation"
+                  name="Term Extraction Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TermExtraction\Term Extraction.Inputs[Term Extraction Input].Columns[Comments]"
+                      cachedDataType="wstr"
+                      cachedLength="3850"
+                      cachedName="Comments"
+                      lineageId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output].Columns[Comments]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Output]"
+                  description="Output from Term Extraction Transformation"
+                  errorOrTruncationOperation="Term Extraction"
+                  errorRowDisposition="FailComponent"
+                  name="Term Extraction Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Output].Columns[Term]"
+                      dataType="wstr"
+                      description="Output Column from Term Extraction Transform"
+                      length="128"
+                      lineageId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Output].Columns[Term]"
+                      name="Term" />
+                    <outputColumn
+                      refId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Output].Columns[Score]"
+                      dataType="r8"
+                      description="Score"
+                      lineageId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Output].Columns[Score]"
+                      name="Score" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Error Output]"
+                  description="Error Output from Term Extraction Transform"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Term Extraction Error Output"
+                  synchronousInputId="Package\TermExtraction\Term Extraction.Inputs[Term Extraction Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TermExtraction\Terms"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Terms"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Terms]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TermExtraction\Terms.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input].Columns[Term]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Term"
+                      externalMetadataColumnId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input].ExternalColumns[Term]"
+                      lineageId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Output].Columns[Term]" />
+                    <inputColumn
+                      refId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input].Columns[Score]"
+                      cachedDataType="r8"
+                      cachedName="Score"
+                      externalMetadataColumnId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input].ExternalColumns[Score]"
+                      lineageId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Output].Columns[Score]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input].ExternalColumns[Term]"
+                      dataType="wstr"
+                      length="128"
+                      name="Term" />
+                    <externalMetadataColumn
+                      refId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input].ExternalColumns[Score]"
+                      dataType="r8"
+                      name="Score" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TermExtraction\Terms.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermExtraction\Terms.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\Terms.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TermExtraction\Terms.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TermExtraction\Terms.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TermExtraction.Paths[OLE DB Source Output]"
+              endId="Package\TermExtraction\Term Extraction.Inputs[Term Extraction Input]"
+              name="OLE DB Source Output"
+              startId="Package\TermExtraction\ProductReviews.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\TermExtraction.Paths[Term Extraction Output]"
+              endId="Package\TermExtraction\Terms.Inputs[OLE DB Destination Input]"
+              name="Term Extraction Output"
+              startId="Package\TermExtraction\Term Extraction.Outputs[Term Extraction Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TermLookup"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{024EBB63-0F5E-421A-BB2D-DCF4EEBB393B}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TermLookup"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\TermLookup\ProductReviews"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ProductReviews"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT ProductReviewID,
+ ProductID,
+ ReviewerName,
+ Rating,
+ Comments
+FROM Production.ProductReview;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TermLookup\ProductReviews.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductReviewID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ProductReviewID]"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductReviewID]"
+                      name="ProductReviewID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ReviewerName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ReviewerName]"
+                      length="50"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ReviewerName]"
+                      name="ReviewerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[Rating]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[Rating]"
+                      name="Rating"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[Comments]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[Comments]"
+                      length="3850"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[Comments]"
+                      name="Comments"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ProductReviewID]"
+                      dataType="i4"
+                      name="ProductReviewID" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[ReviewerName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ReviewerName" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                      dataType="i4"
+                      name="Rating" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].ExternalColumns[Comments]"
+                      dataType="wstr"
+                      length="3850"
+                      name="Comments" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ProductReviewID]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ProductReviewID]"
+                      name="ProductReviewID" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ReviewerName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ReviewerName]"
+                      name="ReviewerName" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                      name="Rating" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[Comments]"
+                      dataType="wstr"
+                      length="3850"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[Comments]"
+                      name="Comments" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TermLookup\Term Lookup"
+              componentClassID="{ACCC729A-823D-49A7-B16D-F1999AEB1D4C}"
+              description="Determines how frequently specific terms occur in a data flow. Matching terms and their frequency of occurrence are written to output data columns. For example, see if a document contains terms that are common in a particular document category. Note: you must supply a table of reference terms."
+              name="Term Lookup"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the reference table that contains the reference terms."
+                  name="RefTermTable">[dbo].[Terms]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column that contains the reference terms. The column must be in the table specified in the property RefTermTable."
+                  name="RefTermColumn">Term</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the lookup operation is case-sensitive."
+                  name="IsCaseSensitive">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TermLookup\Term Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  description="Reference Data Connection."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TermLookup\Term Lookup.Inputs[Term Lookup Input]"
+                  description="Input to Term Lookup Transformation"
+                  name="Term Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TermLookup\Term Lookup.Inputs[Term Lookup Input].Columns[ProductReviewID]"
+                      cachedDataType="i4"
+                      cachedName="ProductReviewID"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductReviewID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is a pass-thru column and whether it is a lookup column. 0 indicates a pass-thru column, 1 indicates a lookup column, and 2 indicates the column is both a pass-thru and a lookup column."
+                          name="InputColumnType">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\TermLookup\Term Lookup.Inputs[Term Lookup Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is a pass-thru column and whether it is a lookup column. 0 indicates a pass-thru column, 1 indicates a lookup column, and 2 indicates the column is both a pass-thru and a lookup column."
+                          name="InputColumnType">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\TermLookup\Term Lookup.Inputs[Term Lookup Input].Columns[ReviewerName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ReviewerName"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ReviewerName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is a pass-thru column and whether it is a lookup column. 0 indicates a pass-thru column, 1 indicates a lookup column, and 2 indicates the column is both a pass-thru and a lookup column."
+                          name="InputColumnType">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\TermLookup\Term Lookup.Inputs[Term Lookup Input].Columns[Rating]"
+                      cachedDataType="i4"
+                      cachedName="Rating"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[Rating]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is a pass-thru column and whether it is a lookup column. 0 indicates a pass-thru column, 1 indicates a lookup column, and 2 indicates the column is both a pass-thru and a lookup column."
+                          name="InputColumnType">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\TermLookup\Term Lookup.Inputs[Term Lookup Input].Columns[Comments]"
+                      cachedDataType="wstr"
+                      cachedLength="3850"
+                      cachedName="Comments"
+                      lineageId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[Comments]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies whether the column is a pass-thru column and whether it is a lookup column. 0 indicates a pass-thru column, 1 indicates a lookup column, and 2 indicates the column is both a pass-thru and a lookup column."
+                          name="InputColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output]"
+                  description="Output from Term Lookup Transform"
+                  errorOrTruncationOperation="Term Lookup"
+                  errorRowDisposition="FailComponent"
+                  name="Term Lookup Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Term]"
+                      dataType="wstr"
+                      description="Term from the reference data."
+                      length="128"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Term]"
+                      name="Term" />
+                    <outputColumn
+                      refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Frequency]"
+                      dataType="i4"
+                      description="The frequency of the term appearing in every text string."
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Frequency]"
+                      name="Frequency" />
+                    <outputColumn
+                      refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ProductReviewID]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ProductReviewID]"
+                      name="ProductReviewID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage ID of the upstream column that is referenced by this column."
+                          name="CustomLineageID">#{Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductReviewID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ProductID]"
+                      name="ProductID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage ID of the upstream column that is referenced by this column."
+                          name="CustomLineageID">#{Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ProductID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ReviewerName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ReviewerName]"
+                      name="ReviewerName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage ID of the upstream column that is referenced by this column."
+                          name="CustomLineageID">#{Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[ReviewerName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Rating]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Rating]"
+                      name="Rating">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage ID of the upstream column that is referenced by this column."
+                          name="CustomLineageID">#{Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output].Columns[Rating]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Error Output]"
+                  description="Error Output from Term Lookup Transform"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Term Lookup Error Output"
+                  synchronousInputId="Package\TermLookup\Term Lookup.Inputs[Term Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\TermLookup\TermsInReviews"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="TermsInReviews"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[TermsInReviews]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\TermLookup\TermsInReviews.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorks2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].Columns[Term]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Term"
+                      externalMetadataColumnId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[Term]"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Term]" />
+                    <inputColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].Columns[Frequency]"
+                      cachedDataType="i4"
+                      cachedName="Frequency"
+                      externalMetadataColumnId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[Frequency]"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Frequency]" />
+                    <inputColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].Columns[ProductReviewID]"
+                      cachedDataType="i4"
+                      cachedName="ProductReviewID"
+                      externalMetadataColumnId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[ProductReviewID]"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ProductReviewID]" />
+                    <inputColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].Columns[ReviewerName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ReviewerName"
+                      externalMetadataColumnId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[ReviewerName]"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[ReviewerName]" />
+                    <inputColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].Columns[Rating]"
+                      cachedDataType="i4"
+                      cachedName="Rating"
+                      externalMetadataColumnId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                      lineageId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output].Columns[Rating]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[Term]"
+                      dataType="wstr"
+                      length="128"
+                      name="Term" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[Frequency]"
+                      dataType="i4"
+                      name="Frequency" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[ProductReviewID]"
+                      dataType="i4"
+                      name="ProductReviewID" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[ReviewerName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ReviewerName" />
+                    <externalMetadataColumn
+                      refId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                      dataType="i4"
+                      name="Rating" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\TermLookup\TermsInReviews.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\TermLookup\TermsInReviews.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\TermsInReviews.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\TermLookup\TermsInReviews.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\TermLookup\TermsInReviews.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\TermLookup.Paths[OLE DB Source Output]"
+              endId="Package\TermLookup\Term Lookup.Inputs[Term Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\TermLookup\ProductReviews.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\TermLookup.Paths[Term Lookup Output]"
+              endId="Package\TermLookup\TermsInReviews.Inputs[OLE DB Destination Input]"
+              name="Term Lookup Output"
+              startId="Package\TermLookup\Term Lookup.Outputs[Term Lookup Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A5A78292-6B4F-44A7-A875-73060BA54967}"
+      DTS:From="Package\TermExtraction"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\TermLookup" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\TermExtraction"
+          TopLeft="75,45" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\TermLookup"
+          TopLeft="78,132" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="149.25,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\TermExtraction">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\TermExtraction\Term Extraction"
+          TopLeft="72.1666666666667,127" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\TermExtraction\ProductReviews"
+          TopLeft="72.6666666666667,43" />
+        <NodeLayout
+          Size="109,42"
+          Id="Package\TermExtraction\Terms"
+          TopLeft="95.1666666666667,211" />
+        <EdgeLayout
+          Id="Package\TermExtraction.Paths[Term Extraction Output]"
+          TopLeft="149.666666666667,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TermExtraction.Paths[OLE DB Source Output]"
+          TopLeft="149.666666666667,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TermExtraction\ProductReviews">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TermExtraction\Terms">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\TermLookup">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\TermLookup\TermsInReviews"
+          TopLeft="143.333333333333,233" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\TermLookup\Term Lookup"
+          TopLeft="151.333333333333,151" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\TermLookup\ProductReviews"
+          TopLeft="145.333333333333,69" />
+        <EdgeLayout
+          Id="Package\TermLookup.Paths[Term Lookup Output]"
+          TopLeft="222.333333333333,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\TermLookup.Paths[OLE DB Source Output]"
+          TopLeft="222.333333333333,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\TermLookup\TermsInReviews">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\TermLookup\Term Lookup">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

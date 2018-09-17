@@ -1,0 +1,40 @@
+-- Namespace
+using System.Xml;
+
+-- Private variables for the ScriptMain class
+        private string fileName = @"C:\TK463\Chapter19\Lesson1\Solution\EmailProfiling.xml";
+        private string profileNamespaceUri = "http://schemas.microsoft.com/sqlserver/2008/DataDebugger/";
+        private string erx1Path = "/default:DataProfile/default:DataProfileOutput/default:Profiles" +
+            "/default:ColumnPatternProfile[default:Column[@Name='EmailAddress']]" +
+            "/default:TopRegexPatterns/default:PatternDistributionItem[1]/default:RegexText/text()";
+        private string erx2Path = "/default:DataProfile/default:DataProfileOutput/default:Profiles" +
+            "/default:ColumnPatternProfile[default:Column[@Name='EmailAddress']]" +
+            "/default:TopRegexPatterns/default:PatternDistributionItem[2]/default:RegexText/text()";
+
+-- The Main method
+            // Local variables
+            string profilePath;
+            XmlDocument profileOutput = new XmlDocument();
+            XmlNamespaceManager profileNSM;
+            XmlNode regExNode1;
+            XmlNode regExNode2;
+
+            // Open output file.
+            profilePath = fileName;
+            profileOutput.Load(profilePath);
+            profileNSM = new XmlNamespaceManager(profileOutput.NameTable);
+            profileNSM.AddNamespace("default", profileNamespaceUri);
+
+            // Get regExNodes
+            regExNode1 = profileOutput.SelectSingleNode(erx1Path, profileNSM);
+            regExNode2 = profileOutput.SelectSingleNode(erx2Path, profileNSM);
+            
+            // Assign variable values
+            Dts.Variables["User::EmailRegEx1"].Value = regExNode1.Value;
+            Dts.Variables["User::EmailRegEx2"].Value = regExNode2.Value;
+
+            //Show the variable values
+            MessageBox.Show(Dts.Variables["User::EmailRegEx1"].Value.ToString());
+            MessageBox.Show(Dts.Variables["User::EmailRegEx2"].Value.ToString());
+
+

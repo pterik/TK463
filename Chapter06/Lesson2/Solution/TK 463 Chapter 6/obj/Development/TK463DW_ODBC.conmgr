@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="TK463DW_ODBC"
+  DTS:DTSID="{D3C3408D-4F24-4F73-9D57-516C589AFF2A}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Dsn=TK463DW_ODBC;trusted_connection=Yes;app=Microsoft® Visual Studio® 2010;wsid=DENALIPP;database=TK463DW;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,2136 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/25/2012 9:40:13 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DENALIPP"
+  DTS:CreatorName="DENALIPP\Administrator"
+  DTS:DTSID="{B365EA51-EA74-4A80-820E-D144C9ADAAD9}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1060"
+  DTS:ObjectName="FillStageTables"
+  DTS:PackageType="5"
+  DTS:VersionBuild="134"
+  DTS:VersionGUID="{8AE01017-FE67-4AF8-9399-6F7E3451FEBF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{848174F6-64AF-4DAB-A482-AE1B40146BD0}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1060"
+          DTS:Unicode="True"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1250"
+          DTS:ConnectionString="C:\TK463\Chapter05\Code\CustomerInformation.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PersonID"
+              DTS:DTSID="{C3E920F0-B0DD-4B4C-BC49-B8F666E1A41B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="19"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishEducation"
+              DTS:DTSID="{A922DFA5-F578-4016-9EC5-2C8B3D21EDC8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="14"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EnglishOccupation"
+              DTS:DTSID="{272FD059-FBA5-433D-A631-50AAB195C25F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthDate"
+              DTS:DTSID="{61BADEAF-B8D1-496C-B71B-ADE55CE03D27}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{F794BF41-6145-4493-9FF3-5E9D9E08AB7D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MaritalStatus"
+              DTS:DTSID="{C0334B87-8829-4A50-A0A3-93B4FC96B83B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="33"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmailAddress"
+              DTS:DTSID="{6144C9FA-83A5-4C75-AFD7-33614A6EE520}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:LogProviders>
+    <DTS:LogProvider
+      DTS:CreationName="DTS.LogProviderEventLog.3"
+      DTS:Description="Writes log entries for events to the Event Log"
+      DTS:DTSID="{37200428-D110-471A-9676-584A18CFD733}"
+      DTS:ObjectName="SSIS log provider for Windows Event Log">
+      <DTS:ObjectData>
+        <InnerObject />
+      </DTS:ObjectData>
+    </DTS:LogProvider>
+  </DTS:LogProviders>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5EE7A0C4-9ED8-44B4-9273-D1C209E5E3F3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="(DT_UI1) DATEPART( &quot;Weekday&quot;, @[System::StartTime] )"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dayOfWeek">
+      <DTS:VariableValue
+        DTS:DataType="17">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{739785AB-B6A8-4510-A109-085144DF6B6D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="truncateStgCustomer">
+      <DTS:VariableValue
+        DTS:DataType="8">TRUNCATE TABLE stg.Customer;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8EA257F8-F9CE-44A3-8F7F-4BB52122B305}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="truncateStgCustomerInformation">
+      <DTS:VariableValue
+        DTS:DataType="8">TRUNCATE TABLE stg.CustomerInformation;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B80B2D6-ED23-4F2A-9BD0-DF41251CB844}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="truncateStgPerson">
+      <DTS:VariableValue
+        DTS:DataType="8">TRUNCATE TABLE stg.Person;</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="2" />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fill Stage Tables"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{63305887-0E81-4389-9724-CE50EAAB4131}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fill Stage Tables">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="1">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="EventFilter">4,7,OnError,13,OnPostExecute,12,OnPreExecute,12,OnTaskFailed</DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnError"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">0</DTS:Property>
+        </DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnPostExecute"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">0</DTS:Property>
+        </DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnPreExecute"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">0</DTS:Property>
+        </DTS:Property>
+        <DTS:Property
+          DTS:EventName="OnTaskFailed"
+          DTS:Name="ColumnFilter">
+          <DTS:Property
+            DTS:Name="Computer">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="Operator">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceName">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="SourceID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="ExecutionID">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="MessageText">-1</DTS:Property>
+          <DTS:Property
+            DTS:Name="DataBytes">0</DTS:Property>
+        </DTS:Property>
+        <DTS:SelectedLogProviders>
+          <DTS:SelectedLogProvider
+            DTS:InstanceID="{37200428-D110-471A-9676-584A18CFD733}" />
+        </DTS:SelectedLogProviders>
+      </DTS:LoggingOptions>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Fill Stage Tables\Insert stgCustomer"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{6B07B66F-BC3D-4528-9568-17C0CC942F3D}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert stgCustomer"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:PropertyExpression
+            DTS:Name="DefaultBufferMaxRows">@[User::dayOfWeek] == 6 || @[User::dayOfWeek] == 7 ? 20000 : 10000</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="DefaultBufferSize">@[User::dayOfWeek] == 6 || @[User::dayOfWeek] == 7 ? 20971520 : 10485760</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Fill Stage Tables\Insert stgCustomer\Customer"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Customer"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Sales].[Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Connections[OleDbConnection]"
+                      connectionManagerID="{3FBC62EB-062A-455B-A67A-E626F6274246}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[AdventureWorks2012]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[CustomerID]"
+                          name="CustomerID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[PersonID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[PersonID]"
+                          name="PersonID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[StoreID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[StoreID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[StoreID]"
+                          name="StoreID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[TerritoryID]"
+                          name="TerritoryID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[AccountNumber]"
+                          length="10"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[AccountNumber]"
+                          name="AccountNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[rowguid]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[rowguid]"
+                          name="rowguid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          name="ModifiedDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                          dataType="i4"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[PersonID]"
+                          dataType="i4"
+                          name="PersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[StoreID]"
+                          dataType="i4"
+                          name="StoreID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                          dataType="i4"
+                          name="TerritoryID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[AccountNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="AccountNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          dataType="guid"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          name="ModifiedDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                          name="CustomerID" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[PersonID]"
+                          name="PersonID" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[StoreID]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[StoreID]"
+                          name="StoreID" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                          name="TerritoryID" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[AccountNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[AccountNumber]"
+                          name="AccountNumber" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                          dataType="guid"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                          name="rowguid" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          name="ModifiedDate" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion"
+                  componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Inputs[Data Conversion Input].Columns[AccountNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="AccountNumber"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[AccountNumber]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Output].Columns[AccountNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Output].Columns[AccountNumber]"
+                          name="AccountNumber"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[AccountNumber]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="stgCustomer"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stg].[Customer]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Connections[OleDbConnection]"
+                      connectionManagerID="{2010A243-DC16-4B02-95A5-2C48585D5EAF}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[TK463DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                          cachedDataType="i4"
+                          cachedName="CustomerID"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].Columns[PersonID]"
+                          cachedDataType="i4"
+                          cachedName="PersonID"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[PersonID]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].Columns[StoreID]"
+                          cachedDataType="i4"
+                          cachedName="StoreID"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[StoreID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[StoreID]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].Columns[TerritoryID]"
+                          cachedDataType="i4"
+                          cachedName="TerritoryID"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[TerritoryID]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].Columns[AccountNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="20"
+                          cachedName="AccountNumber"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Output].Columns[AccountNumber]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                          dataType="i4"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                          dataType="i4"
+                          name="PersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[StoreID]"
+                          dataType="i4"
+                          name="StoreID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryID]"
+                          dataType="i4"
+                          name="TerritoryID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[AccountNumber]"
+                          dataType="wstr"
+                          length="20"
+                          name="AccountNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          name="ModifiedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input].ExternalColumns[RowCheckSum]"
+                          codePage="1252"
+                          dataType="str"
+                          length="128"
+                          name="RowCheckSum" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Fill Stage Tables\Insert stgCustomer.Paths[Data Conversion Output]"
+                  endId="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Fill Stage Tables\Insert stgCustomer.Paths[OLE DB Source Output]"
+                  endId="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion.Inputs[Data Conversion Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Fill Stage Tables\Insert stgCustomer\Customer.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fill Stage Tables\Insert stgCustomerInformation"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{34324FF5-18BE-4FB7-8150-1DA721D98F2A}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert stgCustomerInformation"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information"
+                  componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1060"
+                  name="Customer Information"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[PersonID]"
+                          dataType="i2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[PersonID]"
+                          name="PersonID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EnglishEducation]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[EnglishEducation]"
+                          length="19"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EnglishEducation]"
+                          name="EnglishEducation"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EnglishOccupation]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[EnglishOccupation]"
+                          length="14"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EnglishOccupation]"
+                          name="EnglishOccupation"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[BirthDate]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[BirthDate]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[BirthDate]"
+                          name="BirthDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                          length="1"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[MaritalStatus]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[MaritalStatus]"
+                          length="1"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[MaritalStatus]"
+                          name="MaritalStatus"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EmailAddress]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
+                          length="33"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EmailAddress]"
+                          name="EmailAddress"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
+                          dataType="i2"
+                          name="PersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[EnglishEducation]"
+                          dataType="wstr"
+                          length="19"
+                          name="EnglishEducation" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[EnglishOccupation]"
+                          dataType="wstr"
+                          length="14"
+                          name="EnglishOccupation" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[BirthDate]"
+                          dataType="i4"
+                          name="BirthDate" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[MaritalStatus]"
+                          dataType="wstr"
+                          length="1"
+                          name="MaritalStatus" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
+                          dataType="wstr"
+                          length="33"
+                          name="EmailAddress" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          dataType="nText"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="stgCustomerInformation"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stg].[CustomerInformation]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Connections[OleDbConnection]"
+                      connectionManagerID="{2010A243-DC16-4B02-95A5-2C48585D5EAF}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[TK463DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].Columns[PersonID]"
+                          cachedDataType="i2"
+                          cachedName="PersonID"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[PersonID]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].Columns[EnglishEducation]"
+                          cachedDataType="wstr"
+                          cachedLength="19"
+                          cachedName="EnglishEducation"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[EnglishEducation]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EnglishEducation]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].Columns[EnglishOccupation]"
+                          cachedDataType="wstr"
+                          cachedLength="14"
+                          cachedName="EnglishOccupation"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[EnglishOccupation]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EnglishOccupation]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].Columns[MaritalStatus]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="MaritalStatus"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[MaritalStatus]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].Columns[EmailAddress]"
+                          cachedDataType="wstr"
+                          cachedLength="33"
+                          cachedName="EmailAddress"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[EmailAddress]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].Columns[BirthDate]"
+                          cachedDataType="i4"
+                          cachedName="BirthDate"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output].Columns[BirthDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[PersonID]"
+                          dataType="i4"
+                          name="PersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[EnglishEducation]"
+                          dataType="wstr"
+                          length="30"
+                          name="EnglishEducation" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[EnglishOccupation]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishOccupation" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                          dataType="dbDate"
+                          name="BirthDate" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus]"
+                          dataType="wstr"
+                          length="1"
+                          name="MaritalStatus" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                          dataType="wstr"
+                          length="50"
+                          name="EmailAddress" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input].ExternalColumns[RowCheckSum]"
+                          codePage="1252"
+                          dataType="str"
+                          length="128"
+                          name="RowCheckSum" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Fill Stage Tables\Insert stgCustomerInformation.Paths[Flat File Source Output]"
+                  endId="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fill Stage Tables\Insert stgPerson"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C2AC57DF-87B4-4BBF-BFF0-6DA04AC43095}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert stgPerson"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Fill Stage Tables\Insert stgPerson\Person"
+                  componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Person"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[Person].[Person]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * FROM Person.Person;</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Stage Tables\Insert stgPerson\Person.Connections[OleDbConnection]"
+                      connectionManagerID="{3FBC62EB-062A-455B-A67A-E626F6274246}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[AdventureWorks2012]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                          name="BusinessEntityID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[PersonType]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[PersonType]"
+                          length="2"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[PersonType]"
+                          name="PersonType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[FirstName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                          length="50"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[MiddleName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[MiddleName]"
+                          length="50"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[MiddleName]"
+                          name="MiddleName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[LastName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                          length="50"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[Suffix]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[Suffix]"
+                          length="10"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[Suffix]"
+                          name="Suffix"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[EmailPromotion]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[EmailPromotion]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[EmailPromotion]"
+                          name="EmailPromotion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          name="ModifiedDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[Title]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                          length="8"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[Title]"
+                          name="Title"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                          dataType="i4"
+                          name="BusinessEntityID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[PersonType]"
+                          dataType="wstr"
+                          length="2"
+                          name="PersonType" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[NameStyle]"
+                          dataType="bool"
+                          name="NameStyle" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                          dataType="wstr"
+                          length="8"
+                          name="Title" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MiddleName" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[Suffix]"
+                          dataType="wstr"
+                          length="10"
+                          name="Suffix" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[EmailPromotion]"
+                          dataType="i4"
+                          name="EmailPromotion" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[AdditionalContactInfo]"
+                          dataType="nText"
+                          name="AdditionalContactInfo" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[Demographics]"
+                          dataType="nText"
+                          name="Demographics" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          dataType="guid"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          name="ModifiedDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                          name="BusinessEntityID" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[PersonType]"
+                          dataType="wstr"
+                          length="2"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[PersonType]"
+                          name="PersonType" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                          name="FirstName" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[MiddleName]"
+                          name="MiddleName" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                          name="LastName" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[Suffix]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[Suffix]"
+                          name="Suffix" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[EmailPromotion]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[EmailPromotion]"
+                          name="EmailPromotion" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          name="ModifiedDate" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[Title]"
+                          dataType="wstr"
+                          length="8"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Error Output].Columns[Title]"
+                          name="Title" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson"
+                  componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="stgPerson"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stg].[Person]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Connections[OleDbConnection]"
+                      connectionManagerID="{2010A243-DC16-4B02-95A5-2C48585D5EAF}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[TK463DW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
+                          cachedDataType="i4"
+                          cachedName="BusinessEntityID"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].Columns[PersonType]"
+                          cachedDataType="wstr"
+                          cachedLength="2"
+                          cachedName="PersonType"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[PersonType]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[PersonType]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].Columns[MiddleName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="MiddleName"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[MiddleName]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].Columns[Suffix]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Suffix"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[Suffix]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[Suffix]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                        <inputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].Columns[Title]"
+                          cachedDataType="wstr"
+                          cachedLength="8"
+                          cachedName="Title"
+                          externalMetadataColumnId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output].Columns[Title]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                          dataType="i4"
+                          name="BusinessEntityID" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[PersonType]"
+                          dataType="wstr"
+                          length="2"
+                          name="PersonType" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                          dataType="wstr"
+                          length="8"
+                          name="Title" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                          dataType="wstr"
+                          length="50"
+                          name="MiddleName" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[Suffix]"
+                          dataType="wstr"
+                          length="10"
+                          name="Suffix" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                          dataType="dbTimeStamp"
+                          name="ModifiedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input].ExternalColumns[RowCheckSum]"
+                          codePage="1252"
+                          dataType="str"
+                          length="128"
+                          name="RowCheckSum" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Fill Stage Tables\Insert stgPerson.Paths[OLE DB Source Output]"
+                  endId="Package\Fill Stage Tables\Insert stgPerson\stgPerson.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Fill Stage Tables\Insert stgPerson\Person.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fill Stage Tables\Truncate Table stgCustomer"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{24892568-CE95-4BE9-BAA7-2DB9466462AE}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Table stgCustomer"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server &quot;2012&quot; RC0; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2010A243-DC16-4B02-95A5-2C48585D5EAF}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::truncateStgCustomer" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fill Stage Tables\Truncate Table stgCustomerInformation"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FA12EA96-2408-4980-A3AD-855A9DDD2C97}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Table stgCustomerInformation"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server &quot;2012&quot; RC0; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2010A243-DC16-4B02-95A5-2C48585D5EAF}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::truncateStgCustomerInformation" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fill Stage Tables\Truncate Table stgPerson"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:Description="Truncate Table stgPerson"
+          DTS:DTSID="{1E88EEE8-96CE-4CBA-AAA1-1E2DE2A5BFAB}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Truncate Table stgPerson"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server &quot;2012&quot; RC0; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:LoggingOptions
+            DTS:FilterKind="0" />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2010A243-DC16-4B02-95A5-2C48585D5EAF}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::truncateStgPerson" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fill Stage Tables.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{14CD6D29-2653-4C5C-87F1-8BB88F0EF838}"
+          DTS:From="Package\Fill Stage Tables\Truncate Table stgPerson"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Fill Stage Tables\Insert stgPerson" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fill Stage Tables.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{E6DD33FF-76D3-432A-B266-F189130B106B}"
+          DTS:From="Package\Fill Stage Tables\Truncate Table stgCustomerInformation"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Fill Stage Tables\Insert stgCustomerInformation" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fill Stage Tables.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{68A63494-6AE5-496F-ADC1-DFF306A5565F}"
+          DTS:From="Package\Fill Stage Tables\Truncate Table stgCustomer"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Fill Stage Tables\Insert stgCustomer" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Fill Stage Tables\Insert stgCustomer"
+          TopLeft="29.6666666666667,107.5" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\Fill Stage Tables\Insert stgCustomerInformation"
+          TopLeft="302.166666666667,107.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Fill Stage Tables\Insert stgPerson"
+          TopLeft="336.166666666667,202.5" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Fill Stage Tables\Truncate Table stgCustomer"
+          TopLeft="8.16666666666667,5.5" />
+        <NodeLayout
+          Size="268,42"
+          Id="Package\Fill Stage Tables\Truncate Table stgCustomerInformation"
+          TopLeft="280.666666666667,5.49999999999989" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Fill Stage Tables\Truncate Table stgPerson"
+          TopLeft="14.6666666666667,202.5" />
+        <EdgeLayout
+          Id="Package\Fill Stage Tables.PrecedenceConstraints[Constraint]"
+          TopLeft="214.666666666667,223.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.5,0"
+              Start="0,0"
+              End="114,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="114,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Stage Tables.PrecedenceConstraints[Constraint 1]"
+          TopLeft="414.666666666667,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Stage Tables.PrecedenceConstraints[Constraint 2]"
+          TopLeft="114.666666666667,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="605,303"
+          Size="605,346"
+          Id="Package\Fill Stage Tables"
+          TopLeft="62,56" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Fill Stage Tables\Insert stgCustomer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer"
+          TopLeft="14.5,209.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Fill Stage Tables\Insert stgCustomer\Data Conversion"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Fill Stage Tables\Insert stgCustomer\Customer"
+          TopLeft="21.5,5.5" />
+        <EdgeLayout
+          Id="Package\Fill Stage Tables\Insert stgCustomer.Paths[Data Conversion Output]"
+          TopLeft="84,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fill Stage Tables\Insert stgCustomer.Paths[OLE DB Source Output]"
+          TopLeft="84,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Stage Tables\Insert stgCustomer\stgCustomer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Stage Tables\Insert stgCustomer\Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fill Stage Tables\Insert stgCustomerInformation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Fill Stage Tables\Insert stgCustomerInformation\Customer Information"
+          TopLeft="11,5.5" />
+        <EdgeLayout
+          Id="Package\Fill Stage Tables\Insert stgCustomerInformation.Paths[Flat File Source Output]"
+          TopLeft="102.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Stage Tables\Insert stgCustomerInformation\stgCustomerInformation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fill Stage Tables\Insert stgPerson">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="126,42"
+          Id="Package\Fill Stage Tables\Insert stgPerson\stgPerson"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="112,42"
+          Id="Package\Fill Stage Tables\Insert stgPerson\Person"
+          TopLeft="12.5,5.5" />
+        <EdgeLayout
+          Id="Package\Fill Stage Tables\Insert stgPerson.Paths[OLE DB Source Output]"
+          TopLeft="68.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelinePath
+    design-time-name="Package\Fill Stage Tables\Insert stgPerson.Paths[OLE DB Source Output]">
+    <PathAnnotation>Never</PathAnnotation>
+  </PipelinePath>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Stage Tables\Insert stgPerson\Person">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fill Stage Tables\Insert stgPerson\stgPerson">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

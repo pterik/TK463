@@ -1,0 +1,1466 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/15/2012 2:03:29 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SOLIDQDS"
+  DTS:CreatorName="SOLIDQDS\Administrator"
+  DTS:DTSID="{7E2C633A-3912-4007-A533-15BE3CDC89CA}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DQSCleansing"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{E2F717D4-2139-45A0-A2A6-888BB0CA6A0B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DQS Cleansing Connection Manager.SOLIDQDS]"
+      DTS:CreationName="DQS"
+      DTS:DTSID="{8F2F8436-55E0-4431-AAE9-EC2AF1D8C15E}"
+      DTS:ObjectName="DQS Cleansing Connection Manager.SOLIDQDS">
+      <DTS:ObjectData>
+        <InnerObject>
+          <ServerName
+            Type="8"
+            Value="SOLIDQDS" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7C16D7A6-DD13-475F-A5E0-8B753261B70B}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Cleanse StreetAddress"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="DQS Cleansing component"
+              name="Cleanse StreetAddress"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int64"
+                  name="KnowledgebaseName"
+                  typeConverter="NOTBROWSABLE">1000050</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.Ssdqs.Component.DataCorrection.Logic.DataCorrectionComponent, Microsoft.Ssdqs.Component.DataCorrection, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+                <property
+                  dataType="System.String"
+                  name="PackageName">DQSCleansing</property>
+                <property
+                  dataType="System.String"
+                  name="TaskId">{7C16D7A6-DD13-475F-A5E0-8B753261B70B}</property>
+                <property
+                  dataType="System.Boolean"
+                  name="EncryptConnection">false</property>
+                <property
+                  dataType="System.Boolean"
+                  name="StandardizeOutput">true</property>
+                <property
+                  dataType="System.Boolean"
+                  name="ConfidenceOutputColumnExists">true</property>
+                <property
+                  dataType="System.Boolean"
+                  name="ReasonOutputColumnExists">true</property>
+                <property
+                  dataType="System.Boolean"
+                  name="AppendedDataOutputColumnExists">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Cleanse StreetAddress.Connections[DQS]"
+                  connectionManagerID="Package.ConnectionManagers[DQS Cleansing Connection Manager.SOLIDQDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DQS Cleansing Connection Manager.SOLIDQDS]"
+                  name="DQS" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Cleanse StreetAddress.Inputs[DQS Cleansing Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="DQS Cleansing Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Inputs[DQS Cleansing Input].Columns[CustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CustomerKey"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[CustomerKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="SourceOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CustomerKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Inputs[DQS Cleansing Input].Columns[FullName]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="FullName"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[FullName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="SourceOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[FullName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Inputs[DQS Cleansing Input].Columns[StreetAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="StreetAddress"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[StreetAddress]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="SourceOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Source]}</property>
+                        <property
+                          dataType="System.String"
+                          name="DomainName">StreetAddress</property>
+                        <property
+                          dataType="System.Int64"
+                          name="DomainId">1003</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="CorrectedOutputIsString">false</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="CorrectedOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="StatusOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Status]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="ConfidenceOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Confidence]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="ReasonOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Reason]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Inputs[DQS Cleansing Input].Columns[Updated]"
+                      cachedDataType="i4"
+                      cachedName="Updated"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[Updated]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="SourceOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Updated]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Inputs[DQS Cleansing Input].Columns[CleanCustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CleanCustomerKey"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[CleanCustomerKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          name="SourceOutputLineageId">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CleanCustomerKey]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output]"
+                  name="DQS Cleansing Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CustomerKey]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CustomerKey]"
+                      name="CustomerKey" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[FullName]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[FullName]"
+                      name="FullName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Source]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Source]"
+                      name="StreetAddress_Source" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress]"
+                      name="StreetAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Status]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Status]"
+                      name="StreetAddress_Status" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Confidence]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Confidence]"
+                      name="StreetAddress_Confidence" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Reason]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Reason]"
+                      name="StreetAddress_Reason" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Updated]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Updated]"
+                      name="Updated" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CleanCustomerKey]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CleanCustomerKey]"
+                      name="CleanCustomerKey" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Record Status]"
+                      name="Record Status" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\CustomersDirty"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="CustomersDirty"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CustomersDirty]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CustomersDirty.Connections[OleDbConnection]"
+                  connectionManagerID="{0A15B83E-5EF5-4869-870A-61B99B0AB056}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SOLIDQDS.DQS_STAGING_DATA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[FullName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[FullName]"
+                      name="FullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[StreetAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[StreetAddress]"
+                      length="200"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[StreetAddress]"
+                      name="StreetAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[Updated]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[Updated]"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[Updated]"
+                      name="Updated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[CleanCustomerKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[CleanCustomerKey]"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].Columns[CleanCustomerKey]"
+                      name="CleanCustomerKey"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="200"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[StreetAddress]"
+                      dataType="wstr"
+                      length="200"
+                      name="StreetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[Updated]"
+                      dataType="i4"
+                      name="Updated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output].ExternalColumns[CleanCustomerKey]"
+                      dataType="i4"
+                      name="CleanCustomerKey" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                      name="CustomerKey" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                      name="FullName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[StreetAddress]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[StreetAddress]"
+                      name="StreetAddress" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[Updated]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[Updated]"
+                      name="Updated" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[CleanCustomerKey]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[CleanCustomerKey]"
+                      name="CleanCustomerKey" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\CustomersDirtyMatch"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CustomersDirtyMatch"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CustomersDirtyMatch]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CustomersDirtyMatch.Connections[OleDbConnection]"
+                  connectionManagerID="{0A15B83E-5EF5-4869-870A-61B99B0AB056}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SOLIDQDS.DQS_STAGING_DATA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[CustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CustomerKey"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CustomerKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[FullName]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress_Source]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="StreetAddress_Source"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Source]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="StreetAddress"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress_Status]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="StreetAddress_Status"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Status]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress_Confidence]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="StreetAddress_Confidence"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Confidence]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Confidence]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress_Reason]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="StreetAddress_Reason"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Reason]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Reason]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[Updated]"
+                      cachedDataType="i4"
+                      cachedName="Updated"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[Updated]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Updated]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[CleanCustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CleanCustomerKey"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[CleanCustomerKey]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CleanCustomerKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].Columns[Record Status]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Record Status"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[Record_Status]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Record Status]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="200"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Source]"
+                      dataType="wstr"
+                      length="200"
+                      name="StreetAddress_Source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress]"
+                      dataType="wstr"
+                      length="200"
+                      name="StreetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Status]"
+                      dataType="wstr"
+                      length="100"
+                      name="StreetAddress_Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Confidence]"
+                      dataType="wstr"
+                      length="100"
+                      name="StreetAddress_Confidence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Reason]"
+                      dataType="wstr"
+                      length="4000"
+                      name="StreetAddress_Reason" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[Updated]"
+                      dataType="i4"
+                      name="Updated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[CleanCustomerKey]"
+                      dataType="i4"
+                      name="CleanCustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input].ExternalColumns[Record_Status]"
+                      dataType="wstr"
+                      length="100"
+                      name="Record_Status" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CustomersDirtyMatch.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirtyMatch.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyMatch.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirtyMatch.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\CustomersDirtyNoMatch"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CustomersDirtyNoMatch"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CustomersDirtyNoMatch]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CustomersDirtyNoMatch.Connections[OleDbConnection]"
+                  connectionManagerID="{0A15B83E-5EF5-4869-870A-61B99B0AB056}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SOLIDQDS.DQS_STAGING_DATA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[CustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CustomerKey"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CustomerKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[FullName]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress_Source]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="StreetAddress_Source"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Source]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Source]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="StreetAddress"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress_Status]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="StreetAddress_Status"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Status]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress_Confidence]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="StreetAddress_Confidence"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Confidence]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Confidence]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[StreetAddress_Reason]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="StreetAddress_Reason"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Reason]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress_Reason]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[Updated]"
+                      cachedDataType="i4"
+                      cachedName="Updated"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[Updated]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Updated]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[CleanCustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CleanCustomerKey"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[CleanCustomerKey]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CleanCustomerKey]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].Columns[Record Status]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Record Status"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[Record_Status]"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[Record Status]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="200"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Source]"
+                      dataType="wstr"
+                      length="200"
+                      name="StreetAddress_Source" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress]"
+                      dataType="wstr"
+                      length="200"
+                      name="StreetAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Status]"
+                      dataType="wstr"
+                      length="100"
+                      name="StreetAddress_Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Confidence]"
+                      dataType="wstr"
+                      length="100"
+                      name="StreetAddress_Confidence" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[StreetAddress_Reason]"
+                      dataType="wstr"
+                      length="4000"
+                      name="StreetAddress_Reason" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[Updated]"
+                      dataType="i4"
+                      name="Updated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[CleanCustomerKey]"
+                      dataType="i4"
+                      name="CleanCustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input].ExternalColumns[Record_Status]"
+                      dataType="wstr"
+                      length="100"
+                      name="Record_Status" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CustomersDirtyNoMatch.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirtyNoMatch.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CustomersDirtyNoMatch.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CustomersDirtyNoMatch.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Exact Matches"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Exact Matches"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[CustomersClean]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[CustomersClean]) [refTable]
+where [refTable].[FullName] = ? and [refTable].[StreetAddress] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullName" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StreetAddress" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[FullName]};#{Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Exact Matches.Connections[OleDbConnection]"
+                  connectionManagerID="{0A15B83E-5EF5-4869-870A-61B99B0AB056}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SOLIDQDS.DQS_STAGING_DATA]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Exact Matches.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Exact Matches.Inputs[Lookup Input].Columns[FullName]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="FullName"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[FullName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">FullName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Exact Matches.Inputs[Lookup Input].Columns[StreetAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="StreetAddress"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[StreetAddress]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StreetAddress</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Exact Matches.Inputs[Lookup Input].Columns[CleanCustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CleanCustomerKey"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output].Columns[CleanCustomerKey]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn" />
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CustomerKey</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Exact Matches.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Exact Matches.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Exact Matches.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Exact Matches.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Exact Matches.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Exact Matches.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Exact Matches.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Exact Matches.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Exact Matches.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Exact Matches.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Match"
+              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Match">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Match.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Match.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\Match.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Match.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Data Flow Task\Match.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\No Match"
+              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="No Match">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\No Match.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\No Match.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\Data Flow Task\No Match.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\No Match.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\Data Flow Task\No Match.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[DQS Cleansing Output]"
+              endId="Package\Data Flow Task\Exact Matches.Inputs[Lookup Input]"
+              name="DQS Cleansing Output"
+              startId="Package\Data Flow Task\Cleanse StreetAddress.Outputs[DQS Cleansing Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\Match.Inputs[Multicast Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Exact Matches.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow Task\No Match.Inputs[Multicast Input 1]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task\Exact Matches.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 11]"
+              endId="Package\Data Flow Task\CustomersDirtyNoMatch.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\Data Flow Task\No Match.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Multicast Output 1]"
+              endId="Package\Data Flow Task\CustomersDirtyMatch.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\Data Flow Task\Match.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Cleanse StreetAddress.Inputs[DQS Cleansing Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\CustomersDirty.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Data Flow Task"
+          TopLeft="63,68" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="147,42"
+          Id="Package\Data Flow Task\Exact Matches"
+          TopLeft="150.833333333333,121" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Data Flow Task\No Match"
+          TopLeft="359,121" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Data Flow Task\CustomersDirty"
+          TopLeft="148.333333333333,5" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Data Flow Task\CustomersDirtyNoMatch"
+          TopLeft="359,197" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Match"
+          TopLeft="64,191" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Data Flow Task\CustomersDirtyMatch"
+          TopLeft="64,268" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Data Flow Task\Cleanse StreetAddress"
+          TopLeft="131.833333333333,65" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 1]"
+          TopLeft="118,233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36,35"
+              Start="0,0"
+              End="36,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="32,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32,17.5"
+                    Point2="36,17.5"
+                    Point3="36,21.5" />
+                  <mssgle:LineSegment
+                    End="36,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="297.833333333333,142">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="61.1666666666666,0"
+              Start="0,0"
+              End="53.6666666666666,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.6666666666666,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.9730533854167,5,109.6127734375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="224.333333333333,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106.333333333333,28"
+              Start="0,0"
+              End="-106.333333333333,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="-4,14" />
+                  <mssgle:LineSegment
+                    End="-102.333333333333,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102.333333333333,14"
+                    Point2="-106.333333333333,14"
+                    Point3="-106.333333333333,18" />
+                  <mssgle:LineSegment
+                    End="-106.333333333333,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.358053385417,19,94.3827734375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[DQS Cleansing Output]"
+          TopLeft="131.833333333333,91.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19,50.3333333333333"
+              Start="0,0"
+              End="11.5,50.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,46.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,46.3333333333333"
+                    Point2="-22.5,50.3333333333333"
+                    Point3="-18.5,50.3333333333333" />
+                  <mssgle:LineSegment
+                    End="11.5,50.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="148.333333333333,26">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.5,54.3333333333333"
+              Start="0,0"
+              End="-24,54.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-35,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35,0"
+                    Point2="-39,0"
+                    Point3="-39,4" />
+                  <mssgle:LineSegment
+                    End="-39,50.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39,50.3333333333333"
+                    Point2="-39,54.3333333333333"
+                    Point3="-35,54.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-24,54.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Multicast Output 11]"
+          TopLeft="421.5,163">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34,34"
+              Start="0,0"
+              End="34,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="30,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30,17"
+                    Point2="34,17"
+                    Point3="34,21" />
+                  <mssgle:LineSegment
+                    End="34,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Exact Matches">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[CustomersClean]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\CustomersDirty">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\CustomersDirtyNoMatch">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\CustomersDirtyMatch">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

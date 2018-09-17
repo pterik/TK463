@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/15/2012 3:22:59 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DS110"
+  DTS:CreatorName="DS110\M"
+  DTS:DTSID="{3846A286-B365-4B40-AA55-5536379FF156}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="14.0.3026.27"
+  DTS:LocaleID="1060"
+  DTS:ObjectName="FillStageTables"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{829A61B6-8F02-4935-974A-A3A607E69C74}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[02_Archive]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{14A6D817-E173-4BBF-A2ED-1711BE8D0F8E}"
+      DTS:ObjectName="02_Archive">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\1Work\TK463\Chapter04\Lesson2\Starter\TK 463 Chapter 4\02_Archive" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9EF584E3-1F9D-4E2A-B112-AA72F1F2DFB7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="InputFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{BEAADCC6-E04D-47F6-BB55-8D609DC6F0CD}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="DTS.ForEachFileEnumerator.3"
+        DTS:DTSID="{D5A1686A-6A50-4A81-BDD2-B3413F2D7B40}"
+        DTS:ObjectName="{D5A1686A-6A50-4A81-BDD2-B3413F2D7B40}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\1Work\TK463\Chapter04\Lesson2\Starter\TK 463 Chapter 4\01_Input" />
+            <FEFEProperty
+              FileSpec="CustomerInformation_*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archive Input File"
+          DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{5442974B-840D-47C1-8AE0-1CF0060F9974}"
+          DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask, Microsoft.SqlServer.FileSystemTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive Input File"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::InputFileName"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="02_Archive" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Задача потока данных"
+          DTS:CreationName="SSIS.Pipeline.3"
+          DTS:Description="Задача потока данных"
+          DTS:DTSID="{262C25C3-C189-49BA-8A48-87897C618E20}"
+          DTS:ExecutableType="SSIS.Pipeline.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Задача потока данных"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;"
+                  componentClassID="DTSAdapter.FlatFileSource.3"
+                  contactInfo="Источник &quot;Неструктурированный файл&quot;;Корпорация Майкрософт. Microsoft SQL Server. (C) Корпорация Майкрософт (Microsoft Corporation). Все права защищены. http://www.microsoft.com/sql/support;1"
+                  description="Источник &quot;Неструктурированный файл&quot;"
+                  localeId="1060"
+                  name="Источник &quot;Неструктурированный файл&quot;"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Указывает, считается ли, что столбцы нулевой длины имеют значение NULL."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Указывает имя файла выходного столбца, содержащего имя файла. Если не указано имя, выходной столбец, содержащий имя файла, не будет сформирован."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Connections[FlatFileConnection]"
+                      connectionManagerID="{75775B5C-3C43-43F7-88A3-1E30F6938846}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;]"
+                      name="Выход источника &quot;Неструктурированный файл&quot;">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[PersonID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[PersonID]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[PersonID]"
+                          name="PersonID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[EnglishEducation]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[EnglishEducation]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[EnglishEducation]"
+                          name="EnglishEducation"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[EnglishOccupation]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[EnglishOccupation]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[EnglishOccupation]"
+                          name="EnglishOccupation"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[BirthDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[BirthDate]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[BirthDate]"
+                          name="BirthDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[Gender]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[MaritalStatus]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[MaritalStatus]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[MaritalStatus]"
+                          name="MaritalStatus"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[EmailAddress]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Преобразование"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[EmailAddress]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].Columns[EmailAddress]"
+                          name="EmailAddress"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, используются ли в столбце более производительные, не зависящие от локалей процедуры синтаксического анализа."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Указывает, являются ли данные двоичными."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[PersonID]"
+                          dataType="wstr"
+                          length="50"
+                          name="PersonID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[EnglishEducation]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishEducation" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[EnglishOccupation]"
+                          dataType="wstr"
+                          length="50"
+                          name="EnglishOccupation" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[BirthDate]"
+                          dataType="wstr"
+                          length="50"
+                          name="BirthDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="50"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[MaritalStatus]"
+                          dataType="wstr"
+                          length="50"
+                          name="MaritalStatus" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Выход источника &quot;Неструктурированный файл&quot;].ExternalColumns[EmailAddress]"
+                          dataType="wstr"
+                          length="50"
+                          name="EmailAddress" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;]"
+                      isErrorOut="true"
+                      name="Вывод ошибок источника &quot;Неструктурированный файл&quot;">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
+                          dataType="nText"
+                          description="Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;]"
+                          name="Столбец вывода ошибок источника &quot;Неструктурированный файл&quot;" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;.Outputs[Вывод ошибок источника &quot;Неструктурированный файл&quot;].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{2FF581AE-70EB-44C4-B8C7-988ABF7E8385}"
+          DTS:ObjectName="{2FF581AE-70EB-44C4-B8C7-988ABF7E8385}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::InputFileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Foreach Loop Container\Задача потока данных"
+          TopLeft="28,16" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Foreach Loop Container\Archive Input File"
+          TopLeft="30,82" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="243,255"
+          Size="243,298"
+          Id="Package\Foreach Loop Container"
+          TopLeft="115,87" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Задача потока данных">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Foreach Loop Container\Задача потока данных\Источник &quot;Неструктурированный файл&quot;"
+          TopLeft="80,61" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

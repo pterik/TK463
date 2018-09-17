@@ -1,0 +1,9 @@
+-- Namespace
+using System.Text.RegularExpressions;
+
+-- Validating emails
+        Row.EmailValid = 
+            Regex.IsMatch(Row.EmailAddress, Variables.EmailRegEx1, 
+                          RegexOptions.IgnoreCase | RegexOptions.Compiled) |
+            Regex.IsMatch(Row.EmailAddress, Variables.EmailRegEx2,
+                          RegexOptions.IgnoreCase | RegexOptions.Compiled);

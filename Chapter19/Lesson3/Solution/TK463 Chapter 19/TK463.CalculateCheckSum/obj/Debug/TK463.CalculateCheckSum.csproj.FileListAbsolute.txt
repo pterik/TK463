@@ -1,0 +1,5 @@
+C:\TK463\Chapter19\Lesson3\Solution\TK463 Chapter 19\TK463.CalculateCheckSum\obj\Debug\ResolveAssemblyReference.cache
+C:\TK463\Chapter19\Lesson3\Solution\TK463 Chapter 19\TK463.CalculateCheckSum\bin\Debug\TK463.CalculateCheckSum.dll
+C:\TK463\Chapter19\Lesson3\Solution\TK463 Chapter 19\TK463.CalculateCheckSum\bin\Debug\TK463.CalculateCheckSum.pdb
+C:\TK463\Chapter19\Lesson3\Solution\TK463 Chapter 19\TK463.CalculateCheckSum\obj\Debug\TK463.CalculateCheckSum.dll
+C:\TK463\Chapter19\Lesson3\Solution\TK463 Chapter 19\TK463.CalculateCheckSum\obj\Debug\TK463.CalculateCheckSum.pdb

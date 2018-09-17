@@ -1,0 +1,1898 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/10/2012 5:05:19 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SOLIDQDS"
+  DTS:CreatorName="SOLIDQDS\Administrator"
+  DTS:DTSID="{E0321942-B42F-4751-B837-75E4251250A9}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ProbableBuyers"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{75D7304B-E444-4A10-8DCF-39B79C8B50DC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{DED19D26-2CC8-4930-AE38-0746765AD007}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\TK463\Chapter18\Lesson1\Solution\ProbableBuyers.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProspectiveBuyerKey"
+              DTS:DTSID="{69052C41-05E8-46D7-AD2B-F8AB8DF5B4CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProspectAlternateKey"
+              DTS:DTSID="{0CE6F79F-5051-43C7-B817-822B32103F96}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{1D5B37C0-26B5-4C9C-A111-8666A8C91147}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MiddleName"
+              DTS:DTSID="{4C0FB57D-D269-498E-B958-F0D2D85A719F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{2BD23CCD-BA45-4ABC-855C-5B96766F920F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthDate"
+              DTS:DTSID="{F903082D-235E-433A-AB8C-00E7B601FA7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MaritalStatus"
+              DTS:DTSID="{2DF0CCFB-84E8-4C9E-8865-52E5F1059E70}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{F084FF91-3697-4D2D-8117-F4B24F4A415F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmailAddress"
+              DTS:DTSID="{18A0FF8F-5A88-44AF-89D9-6160279E1BEE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="YearlyIncome"
+              DTS:DTSID="{A069EFB9-CEFA-4566-927E-F2BDA0EF9654}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TotalChildren"
+              DTS:DTSID="{6BA8A198-27E0-4112-AAFE-AFCE0F62AA73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumberChildrenAtHome"
+              DTS:DTSID="{973A5C34-C379-43B6-893C-0B429C4EDE89}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Education"
+              DTS:DTSID="{451B236D-A06B-4542-86E4-36DFEF21234F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Occupation"
+              DTS:DTSID="{821D8E6E-0284-4FD9-83B0-C5766A3BBE87}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HouseOwnerFlag"
+              DTS:DTSID="{9DBC782E-636A-4905-869D-0529A732B304}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="17"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NumberCarsOwned"
+              DTS:DTSID="{C1F94B9B-FB93-4545-813C-19FD9ED82E76}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="120"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressLine1"
+              DTS:DTSID="{668C6CAA-A3B7-4EEF-982A-A12DB3C98472}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="120"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressLine2"
+              DTS:DTSID="{3BF2945D-5DEB-4718-961B-64CBACCF4C6F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="30"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{9D1B053C-BAE4-4457-A952-4F0C820B4C11}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="3"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StateProvinceCode"
+              DTS:DTSID="{9A37A5D7-1170-4135-A4C2-0FC2BA22B25F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="15"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PostalCode"
+              DTS:DTSID="{683B49DD-DBF8-4123-9B92-1883EE2256CE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Phone"
+              DTS:DTSID="{18D23A0F-6A34-40F6-A19B-F0E8F74C1C0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="8"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Salutation"
+              DTS:DTSID="{97760036-41C8-47F2-BFF3-4916C8A4F255}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Unknown"
+              DTS:DTSID="{A0B689B0-25DD-4F92-B8A0-ED6F7CC40545}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BikeBuyer"
+              DTS:DTSID="{83DBD143-4C5F-40C4-BA23-760B8EBAF91E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PredictProbability"
+              DTS:DTSID="{A63F9EF8-47F5-4DE5-8F79-FA9F44314D7F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.AdventureWorksDW2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C14C0E3F-D52E-4382-9EC0-F4A601132986}"
+      DTS:ObjectName="localhost.AdventureWorksDW2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=AdventureWorksDW2012;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.TK 463 Chapter 18 SSAS]"
+      DTS:CreationName="MSOLAP100"
+      DTS:DTSID="{11848C63-ABA3-42F5-9903-6E435686A12D}"
+      DTS:ObjectName="localhost.TK 463 Chapter 18 SSAS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=TK 463 Chapter 18 SSAS;Provider=MSOLAP.5;Integrated Security=SSPI;Impersonation Level=Impersonate;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ProbableBuyers"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0638406E-6B92-464A-BE96-45B74176BB6F}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ProbableBuyers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ProbableBuyers\Conditional Split"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ProbableBuyers\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProbableBuyers\Conditional Split.Inputs[Conditional Split Input].Columns[BikeBuyer]"
+                      cachedDataType="i8"
+                      cachedName="BikeBuyer"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[BikeBuyer]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\Conditional Split.Inputs[Conditional Split Input].Columns[PredictProbability]"
+                      cachedDataType="r8"
+                      cachedName="PredictProbability"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[PredictProbability]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProbableBuyers\Conditional Split.Outputs[ProbableBuyers]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ProbableBuyers"
+                  synchronousInputId="Package\ProbableBuyers\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[BikeBuyer]} == 1 &amp;&amp; #{Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[PredictProbability]} &gt; 0.52</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">BikeBuyer == 1 &amp;&amp; PredictProbability &gt; 0.52</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProbableBuyers\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\ProbableBuyers\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProbableBuyers\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\ProbableBuyers\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProbableBuyers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProbableBuyers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProbableBuyers\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProbableBuyers\JoinTMDT"
+              componentClassID="{CBDFF0CC-3758-4424-A431-3C2E103069AA}"
+              description="Data Mining Query"
+              name="JoinTMDT">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="ObjectRef"></property>
+                <property
+                  dataType="System.String"
+                  name="QueryText">SELECT FLATTENED
+  ([TMDT].[Bike Buyer]) as [BikeBuyer],
+  (PredictProbability([TMDT].[Bike Buyer])) as [PredictProbability]
+From
+  [TMDT]
+PREDICTION JOIN
+ @InputRowset AS t
+ON
+  [TMDT].[Marital Status] = t.[MaritalStatus] AND
+  [TMDT].[Gender] = t.[Gender] AND
+  [TMDT].[Total Children] = t.[TotalChildren] AND
+  [TMDT].[Number Children At Home] = t.[NumberChildrenAtHome] AND
+  [TMDT].[House Owner Flag] = t.[HouseOwnerFlag] AND
+  [TMDT].[Number Cars Owned] = t.[NumberCarsOwned]</property>
+                <property
+                  dataType="System.String"
+                  name="CatalogName">TK 463 Chapter 18 SSAS</property>
+                <property
+                  dataType="System.String"
+                  name="ModelStructureName">TM</property>
+                <property
+                  dataType="System.String"
+                  name="ModelName">TMDT</property>
+                <property
+                  dataType="System.String"
+                  name="QueryBuilderSpecification">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;DataminingQueryBuilderState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;SelectTablesControlState&gt;
+    &lt;Tables&gt;
+      &lt;SelectedTableInfo&gt;
+        &lt;tableName&gt;Data Flow Input Columns&lt;/tableName&gt;
+        &lt;friendlyTableName&gt;Data Flow Input Columns&lt;/friendlyTableName&gt;
+      &lt;/SelectedTableInfo&gt;
+    &lt;/Tables&gt;
+  &lt;/SelectTablesControlState&gt;
+  &lt;IsSingletonQuery&gt;false&lt;/IsSingletonQuery&gt;
+  &lt;View&gt;Design&lt;/View&gt;
+  &lt;QueryText&gt;SELECT FLATTENED
+  ([TMDT].[Bike Buyer]) as [BikeBuyer],
+  (PredictProbability([TMDT].[Bike Buyer])) as [PredictProbability]
+From
+  [TMDT]
+PREDICTION JOIN
+ @InputRowset AS t
+ON
+  [TMDT].[Marital Status] = t.[MaritalStatus] AND
+  [TMDT].[Gender] = t.[Gender] AND
+  [TMDT].[Total Children] = t.[TotalChildren] AND
+  [TMDT].[Number Children At Home] = t.[NumberChildrenAtHome] AND
+  [TMDT].[House Owner Flag] = t.[HouseOwnerFlag] AND
+  [TMDT].[Number Cars Owned] = t.[NumberCarsOwned]&lt;/QueryText&gt;
+  &lt;DatabaseId&gt;TK 463 Chapter 18 SSAS&lt;/DatabaseId&gt;
+  &lt;MiningStructureId&gt;TM&lt;/MiningStructureId&gt;
+  &lt;MiningModelId&gt;TMDT&lt;/MiningModelId&gt;
+  &lt;ColumnMappings&gt;
+    &lt;ColumnMapping&gt;
+      &lt;miningModelColumnId&gt;Marital Status&lt;/miningModelColumnId&gt;
+      &lt;tableName&gt;Data Flow Input Columns&lt;/tableName&gt;
+      &lt;dataColumnName&gt;MaritalStatus&lt;/dataColumnName&gt;
+    &lt;/ColumnMapping&gt;
+    &lt;ColumnMapping&gt;
+      &lt;miningModelColumnId&gt;Gender&lt;/miningModelColumnId&gt;
+      &lt;tableName&gt;Data Flow Input Columns&lt;/tableName&gt;
+      &lt;dataColumnName&gt;Gender&lt;/dataColumnName&gt;
+    &lt;/ColumnMapping&gt;
+    &lt;ColumnMapping&gt;
+      &lt;miningModelColumnId&gt;Total Children&lt;/miningModelColumnId&gt;
+      &lt;tableName&gt;Data Flow Input Columns&lt;/tableName&gt;
+      &lt;dataColumnName&gt;TotalChildren&lt;/dataColumnName&gt;
+    &lt;/ColumnMapping&gt;
+    &lt;ColumnMapping&gt;
+      &lt;miningModelColumnId&gt;Number Children At Home&lt;/miningModelColumnId&gt;
+      &lt;tableName&gt;Data Flow Input Columns&lt;/tableName&gt;
+      &lt;dataColumnName&gt;NumberChildrenAtHome&lt;/dataColumnName&gt;
+    &lt;/ColumnMapping&gt;
+    &lt;ColumnMapping&gt;
+      &lt;miningModelColumnId&gt;House Owner Flag&lt;/miningModelColumnId&gt;
+      &lt;tableName&gt;Data Flow Input Columns&lt;/tableName&gt;
+      &lt;dataColumnName&gt;HouseOwnerFlag&lt;/dataColumnName&gt;
+    &lt;/ColumnMapping&gt;
+    &lt;ColumnMapping&gt;
+      &lt;miningModelColumnId&gt;Number Cars Owned&lt;/miningModelColumnId&gt;
+      &lt;tableName&gt;Data Flow Input Columns&lt;/tableName&gt;
+      &lt;dataColumnName&gt;NumberCarsOwned&lt;/dataColumnName&gt;
+    &lt;/ColumnMapping&gt;
+  &lt;/ColumnMappings&gt;
+  &lt;GridRows&gt;
+    &lt;GridRow&gt;
+      &lt;type&gt;MiningColumn&lt;/type&gt;
+      &lt;parentType&gt;MiningModel&lt;/parentType&gt;
+      &lt;parentId&gt;TMDT&lt;/parentId&gt;
+      &lt;field&gt;Bike Buyer&lt;/field&gt;
+      &lt;alias&gt;BikeBuyer&lt;/alias&gt;
+      &lt;show&gt;true&lt;/show&gt;
+      &lt;group /&gt;
+      &lt;andOr /&gt;
+      &lt;criteria /&gt;
+    &lt;/GridRow&gt;
+    &lt;GridRow&gt;
+      &lt;type&gt;PredictFunction&lt;/type&gt;
+      &lt;parentType&gt;None&lt;/parentType&gt;
+      &lt;field&gt;PredictProbability&lt;/field&gt;
+      &lt;alias&gt;PredictProbability&lt;/alias&gt;
+      &lt;show&gt;true&lt;/show&gt;
+      &lt;group /&gt;
+      &lt;andOr /&gt;
+      &lt;criteria&gt;[TMDT].[Bike Buyer]&lt;/criteria&gt;
+    &lt;/GridRow&gt;
+  &lt;/GridRows&gt;
+&lt;/DataminingQueryBuilderState&gt;</property>
+                <property
+                  dataType="System.String"
+                  name="QueryBuilderQueryString">SELECT FLATTENED
+  ([TMDT].[Bike Buyer]) as [BikeBuyer],
+  (PredictProbability([TMDT].[Bike Buyer])) as [PredictProbability]
+From
+  [TMDT]
+PREDICTION JOIN
+ @InputRowset AS t
+ON
+  [TMDT].[Marital Status] = t.[MaritalStatus] AND
+  [TMDT].[Gender] = t.[Gender] AND
+  [TMDT].[Total Children] = t.[TotalChildren] AND
+  [TMDT].[Number Children At Home] = t.[NumberChildrenAtHome] AND
+  [TMDT].[House Owner Flag] = t.[HouseOwnerFlag] AND
+  [TMDT].[Number Cars Owned] = t.[NumberCarsOwned]</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProbableBuyers\JoinTMDT.Connections[Analysis Services Connection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.TK 463 Chapter 18 SSAS]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.TK 463 Chapter 18 SSAS]"
+                  description="Analysis Services Connection"
+                  name="Analysis Services Connection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput]"
+                  name="AnalysisServicesServerInput">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[ProspectiveBuyerKey]"
+                      cachedDataType="i4"
+                      cachedName="ProspectiveBuyerKey"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[ProspectiveBuyerKey]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[ProspectAlternateKey]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ProspectAlternateKey"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[ProspectAlternateKey]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[BirthDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BirthDate"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[BirthDate]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[MaritalStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="MaritalStatus"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[MaritalStatus]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[EmailAddress]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[YearlyIncome]"
+                      cachedDataType="cy"
+                      cachedName="YearlyIncome"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[YearlyIncome]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[TotalChildren]"
+                      cachedDataType="ui1"
+                      cachedName="TotalChildren"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[TotalChildren]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[NumberChildrenAtHome]"
+                      cachedDataType="ui1"
+                      cachedName="NumberChildrenAtHome"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[NumberChildrenAtHome]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[Education]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Education"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Education]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[Occupation]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Occupation"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Occupation]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[HouseOwnerFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="HouseOwnerFlag"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[HouseOwnerFlag]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[NumberCarsOwned]"
+                      cachedDataType="ui1"
+                      cachedName="NumberCarsOwned"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[NumberCarsOwned]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="120"
+                      cachedName="AddressLine1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="120"
+                      cachedName="AddressLine2"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="City"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[StateProvinceCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="StateProvinceCode"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[StateProvinceCode]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[Phone]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Phone"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[Salutation]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Salutation"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Salutation]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput].Columns[Unknown]"
+                      cachedDataType="i4"
+                      cachedName="Unknown"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Unknown]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query]"
+                  name="Data Mining Query">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[ProspectiveBuyerKey]"
+                      dataType="i4"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[ProspectiveBuyerKey]"
+                      name="ProspectiveBuyerKey" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[ProspectAlternateKey]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[ProspectAlternateKey]"
+                      name="ProspectAlternateKey" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[MiddleName]"
+                      name="MiddleName" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[BirthDate]"
+                      name="BirthDate" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[MaritalStatus]"
+                      name="MaritalStatus" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[EmailAddress]"
+                      name="EmailAddress" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[YearlyIncome]"
+                      dataType="cy"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[YearlyIncome]"
+                      name="YearlyIncome" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[TotalChildren]"
+                      dataType="ui1"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[TotalChildren]"
+                      name="TotalChildren" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[NumberChildrenAtHome]"
+                      dataType="ui1"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[NumberChildrenAtHome]"
+                      name="NumberChildrenAtHome" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Education]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Education]"
+                      name="Education" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Occupation]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Occupation]"
+                      name="Occupation" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[HouseOwnerFlag]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[HouseOwnerFlag]"
+                      name="HouseOwnerFlag" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[NumberCarsOwned]"
+                      dataType="ui1"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[NumberCarsOwned]"
+                      name="NumberCarsOwned" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="120"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="120"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[City]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[StateProvinceCode]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[StateProvinceCode]"
+                      name="StateProvinceCode" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Phone]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Phone]"
+                      name="Phone" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Salutation]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Salutation]"
+                      name="Salutation" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Unknown]"
+                      dataType="i4"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Unknown]"
+                      name="Unknown" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[BikeBuyer]"
+                      dataType="i8"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[BikeBuyer]"
+                      name="BikeBuyer" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[PredictProbability]"
+                      dataType="r8"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[PredictProbability]"
+                      name="PredictProbability" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProbableBuyers\ProbableBuyers"
+              componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="ProbableBuyers">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProbableBuyers\ProbableBuyers.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[ProspectiveBuyerKey]"
+                      cachedDataType="i4"
+                      cachedName="ProspectiveBuyerKey"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[ProspectiveBuyerKey]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[ProspectiveBuyerKey]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[ProspectAlternateKey]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="ProspectAlternateKey"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[ProspectAlternateKey]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[ProspectAlternateKey]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[MiddleName]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[BirthDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BirthDate"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[BirthDate]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[BirthDate]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[MaritalStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="MaritalStatus"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[MaritalStatus]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[MaritalStatus]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[EmailAddress]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[EmailAddress]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[YearlyIncome]"
+                      cachedDataType="cy"
+                      cachedName="YearlyIncome"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[YearlyIncome]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[YearlyIncome]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[TotalChildren]"
+                      cachedDataType="ui1"
+                      cachedName="TotalChildren"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[TotalChildren]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[TotalChildren]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[NumberChildrenAtHome]"
+                      cachedDataType="ui1"
+                      cachedName="NumberChildrenAtHome"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[NumberChildrenAtHome]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[NumberChildrenAtHome]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[Education]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Education"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Education]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Education]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[Occupation]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Occupation"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Occupation]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Occupation]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[HouseOwnerFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="HouseOwnerFlag"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[HouseOwnerFlag]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[HouseOwnerFlag]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[NumberCarsOwned]"
+                      cachedDataType="ui1"
+                      cachedName="NumberCarsOwned"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[NumberCarsOwned]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[NumberCarsOwned]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="120"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="120"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[City]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[City]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[StateProvinceCode]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="StateProvinceCode"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[StateProvinceCode]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[StateProvinceCode]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[Phone]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Phone"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[Salutation]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Salutation"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Salutation]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Salutation]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[Unknown]"
+                      cachedDataType="i4"
+                      cachedName="Unknown"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Unknown]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[Unknown]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[BikeBuyer]"
+                      cachedDataType="i8"
+                      cachedName="BikeBuyer"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[BikeBuyer]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[BikeBuyer]" />
+                    <inputColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].Columns[PredictProbability]"
+                      cachedDataType="r8"
+                      cachedName="PredictProbability"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[PredictProbability]"
+                      lineageId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query].Columns[PredictProbability]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[ProspectiveBuyerKey]"
+                      dataType="i4"
+                      name="ProspectiveBuyerKey" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[ProspectAlternateKey]"
+                      dataType="wstr"
+                      length="15"
+                      name="ProspectAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[YearlyIncome]"
+                      dataType="cy"
+                      name="YearlyIncome" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[TotalChildren]"
+                      dataType="ui1"
+                      name="TotalChildren" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[NumberChildrenAtHome]"
+                      dataType="ui1"
+                      name="NumberChildrenAtHome" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Education]"
+                      dataType="wstr"
+                      length="40"
+                      name="Education" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Occupation]"
+                      dataType="wstr"
+                      length="100"
+                      name="Occupation" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[HouseOwnerFlag]"
+                      dataType="wstr"
+                      length="1"
+                      name="HouseOwnerFlag" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[NumberCarsOwned]"
+                      dataType="ui1"
+                      name="NumberCarsOwned" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="120"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="120"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="30"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[StateProvinceCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="StateProvinceCode" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="20"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Salutation]"
+                      dataType="wstr"
+                      length="8"
+                      name="Salutation" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[Unknown]"
+                      dataType="i4"
+                      name="Unknown" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[BikeBuyer]"
+                      dataType="i8"
+                      name="BikeBuyer" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input].ExternalColumns[PredictProbability]"
+                      dataType="r8"
+                      name="PredictProbability" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\ProbableBuyers\ProspectiveBuyer"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ProspectiveBuyer"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ProspectiveBuyer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProbableBuyers\ProspectiveBuyer.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.AdventureWorksDW2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.AdventureWorksDW2012]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[ProspectiveBuyerKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[ProspectiveBuyerKey]"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[ProspectiveBuyerKey]"
+                      name="ProspectiveBuyerKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[ProspectAlternateKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[ProspectAlternateKey]"
+                      length="15"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[ProspectAlternateKey]"
+                      name="ProspectAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[MiddleName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[MiddleName]"
+                      name="MiddleName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      name="BirthDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[MaritalStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[MaritalStatus]"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[MaritalStatus]"
+                      name="MaritalStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[EmailAddress]"
+                      name="EmailAddress"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[YearlyIncome]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[YearlyIncome]"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[YearlyIncome]"
+                      name="YearlyIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[TotalChildren]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[TotalChildren]"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[TotalChildren]"
+                      name="TotalChildren"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[NumberChildrenAtHome]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[NumberChildrenAtHome]"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[NumberChildrenAtHome]"
+                      name="NumberChildrenAtHome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Education]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Education]"
+                      length="40"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Education]"
+                      name="Education"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Occupation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Occupation]"
+                      length="100"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Occupation]"
+                      name="Occupation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[HouseOwnerFlag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[HouseOwnerFlag]"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[HouseOwnerFlag]"
+                      name="HouseOwnerFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[NumberCarsOwned]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[NumberCarsOwned]"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[NumberCarsOwned]"
+                      name="NumberCarsOwned"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      length="120"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      name="AddressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      length="120"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      name="AddressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="30"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[StateProvinceCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceCode]"
+                      length="3"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[StateProvinceCode]"
+                      name="StateProvinceCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      length="15"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      length="20"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Salutation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Salutation]"
+                      length="8"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Salutation]"
+                      name="Salutation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Unknown]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Unknown]"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].Columns[Unknown]"
+                      name="Unknown"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[ProspectiveBuyerKey]"
+                      dataType="i4"
+                      name="ProspectiveBuyerKey" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[ProspectAlternateKey]"
+                      dataType="wstr"
+                      length="15"
+                      name="ProspectAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[YearlyIncome]"
+                      dataType="cy"
+                      name="YearlyIncome" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[TotalChildren]"
+                      dataType="ui1"
+                      name="TotalChildren" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[NumberChildrenAtHome]"
+                      dataType="ui1"
+                      name="NumberChildrenAtHome" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Education]"
+                      dataType="wstr"
+                      length="40"
+                      name="Education" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Occupation]"
+                      dataType="wstr"
+                      length="100"
+                      name="Occupation" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[HouseOwnerFlag]"
+                      dataType="wstr"
+                      length="1"
+                      name="HouseOwnerFlag" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[NumberCarsOwned]"
+                      dataType="ui1"
+                      name="NumberCarsOwned" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="120"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="120"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="30"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceCode]"
+                      dataType="wstr"
+                      length="3"
+                      name="StateProvinceCode" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="20"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Salutation]"
+                      dataType="wstr"
+                      length="8"
+                      name="Salutation" />
+                    <externalMetadataColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output].ExternalColumns[Unknown]"
+                      dataType="i4"
+                      name="Unknown" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[ProspectiveBuyerKey]"
+                      dataType="i4"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[ProspectiveBuyerKey]"
+                      name="ProspectiveBuyerKey" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[ProspectAlternateKey]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[ProspectAlternateKey]"
+                      name="ProspectAlternateKey" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[MiddleName]"
+                      name="MiddleName" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      name="BirthDate" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[MaritalStatus]"
+                      name="MaritalStatus" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[EmailAddress]"
+                      name="EmailAddress" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[YearlyIncome]"
+                      dataType="cy"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[YearlyIncome]"
+                      name="YearlyIncome" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[TotalChildren]"
+                      dataType="ui1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[TotalChildren]"
+                      name="TotalChildren" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[NumberChildrenAtHome]"
+                      dataType="ui1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[NumberChildrenAtHome]"
+                      name="NumberChildrenAtHome" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Education]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Education]"
+                      name="Education" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Occupation]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Occupation]"
+                      name="Occupation" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[HouseOwnerFlag]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[HouseOwnerFlag]"
+                      name="HouseOwnerFlag" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[NumberCarsOwned]"
+                      dataType="ui1"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[NumberCarsOwned]"
+                      name="NumberCarsOwned" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="120"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="120"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[StateProvinceCode]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[StateProvinceCode]"
+                      name="StateProvinceCode" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      name="Phone" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Salutation]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Salutation]"
+                      name="Salutation" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Unknown]"
+                      dataType="i4"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[Unknown]"
+                      name="Unknown" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ProbableBuyers.Paths[Data Mining Query]"
+              endId="Package\ProbableBuyers\Conditional Split.Inputs[Conditional Split Input]"
+              name="Data Mining Query"
+              startId="Package\ProbableBuyers\JoinTMDT.Outputs[Data Mining Query]" />
+            <path
+              refId="Package\ProbableBuyers.Paths[OLE DB Source Output]"
+              endId="Package\ProbableBuyers\JoinTMDT.Inputs[AnalysisServicesServerInput]"
+              name="OLE DB Source Output"
+              startId="Package\ProbableBuyers\ProspectiveBuyer.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\ProbableBuyers.Paths[ProbableBuyers]"
+              endId="Package\ProbableBuyers\ProbableBuyers.Inputs[Flat File Destination Input]"
+              name="ProbableBuyers"
+              startId="Package\ProbableBuyers\Conditional Split.Outputs[ProbableBuyers]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\ProbableBuyers"
+          TopLeft="54,65" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <ConnectionManager
+    design-time-name="Package.ConnectionManagers[localhost.TK 463 Chapter 18 SSAS]">
+    <ProjectReferenceName></ProjectReferenceName>
+  </ConnectionManager>
+  <TaskHost
+    design-time-name="Package\ProbableBuyers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\ProbableBuyers\ProbableBuyers"
+          TopLeft="53.375,334" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\ProbableBuyers\Conditional Split"
+          TopLeft="51.875,231.333333333333" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\ProbableBuyers\JoinTMDT"
+          TopLeft="66.375,128.666666666667" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\ProbableBuyers\ProspectiveBuyer"
+          TopLeft="49.375,26" />
+        <EdgeLayout
+          Id="Package\ProbableBuyers.Paths[ProbableBuyers]"
+          TopLeft="129.875,273.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.6666666666667"
+              Start="0,0"
+              End="0,53.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-33.622578125,21.7786458333333,67.24515625,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ProbableBuyers.Paths[OLE DB Source Output]"
+          TopLeft="129.875,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.6666666666667"
+              Start="0,0"
+              End="0,53.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ProbableBuyers.Paths[Data Mining Query]"
+          TopLeft="129.875,170.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.6666666666667"
+              Start="0,0"
+              End="0,53.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ProbableBuyers\ProspectiveBuyer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
