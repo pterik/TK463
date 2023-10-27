@@ -1,0 +1,18 @@
+{
+	"name": "pterik-IR-2023-10-27T11-42-59Z",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "West Europe",
+				"nodeSize": "Standard_D8_v3",
+				"numberOfNodes": 1,
+				"maxParallelExecutionsPerNode": 8
+			},
+			"ssisProperties": {
+				"edition": "Standard",
+				"licenseType": "BasePrice"
+			}
+		}
+	}
+}

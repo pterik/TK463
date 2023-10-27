@@ -1,0 +1,9 @@
+{
+	"name": "pterik-DF-2023-10-27T11-42-59Z",
+	"location": "WestEurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "05e4415a-2403-4ec0-ba2e-bdf6ffc463f0",
+		"tenantId": "86b15f72-4fed-4127-9966-0af1b7370953"
+	}
+}
